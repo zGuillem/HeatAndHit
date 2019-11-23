@@ -1,0 +1,61 @@
+﻿using UnityEngine;
+
+public class WeaponSwitch : MonoBehaviour
+{
+
+    public int SelectedWeapon = 0;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        SelectWeapon();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        int actualWeapon = SelectedWeapon;
+        if(Input.GetAxis("Mouse ScrollWheel") > 0f)
+        {
+            SelectedWeapon++;
+            if (SelectedWeapon > transform.childCount-1) SelectedWeapon = 0;
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        {
+            SelectedWeapon--;
+            if (SelectedWeapon < 0) SelectedWeapon = transform.childCount-1;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SelectedWeapon = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2) && transform.childCount >= 2)
+        {
+            SelectedWeapon = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3) && transform.childCount >= 3)
+        {
+            SelectedWeapon = 2;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4) && transform.childCount >= 4)
+        {
+            SelectedWeapon = 3;
+        }
+
+        if (actualWeapon != SelectedWeapon) SelectWeapon();
+    }
+
+    void SelectWeapon()
+    {
+        int i = 0;
+        foreach ( Transform weapon in transform)
+        {
+            if (i == SelectedWeapon)
+                weapon.GetComponent<gunScript>().setWeaponState(true);
+            else
+                weapon.GetComponent<gunScript>().setWeaponState(false);
+            i++;
+        }
+    }
+}
