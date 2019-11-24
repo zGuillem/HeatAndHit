@@ -21,7 +21,11 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-       updateHealth(10f * Time.deltaTime);
+        if (Input.GetButtonDown("AutoDamage"))
+        {
+            updateHealth(10);
+        }
+
     }
 
     public void updateHealth(float value)
