@@ -554,7 +554,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 313298209}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -713,6 +713,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secNeedle: {fileID: 1877804010}
   minNeedle: {fileID: 883871765}
+  secSpeed: 60
+  minSpeed: 5
 --- !u!1 &421907254
 GameObject:
   m_ObjectHideFlags: 0
@@ -2109,7 +2111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   usedCamera: {fileID: 1791186056}
-  verticalPixels: 100
+  verticalPixels: 120
   effectMaterial: {fileID: 2100000, guid: 348571787258a46469dd6c9cdc70ad8c, type: 2}
 --- !u!1 &1877804009
 GameObject:
@@ -2615,7 +2617,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918000128}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
