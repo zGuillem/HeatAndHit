@@ -204,6 +204,12 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 1e7d5b5a1b9ccd04bb856f781553988f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04b054255b5510e4e8545c8de662b09d, type: 3}
+--- !u!1 &192455710 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5661509533541721421, guid: 1ea44962316e63e43b85066185717d05,
+    type: 3}
+  m_PrefabInstance: {fileID: 590902696}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &222257555 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5089223927212833797, guid: 937c61f78f4cddd43a57065c80123447,
@@ -525,6 +531,7 @@ GameObject:
   - component: {fileID: 313298213}
   - component: {fileID: 313298212}
   - component: {fileID: 313298211}
+  - component: {fileID: 313298214}
   m_Layer: 0
   m_Name: AgullaDeLaHora
   m_TagString: Untagged
@@ -605,6 +612,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 313298209}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &313298214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313298209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3922d4f59ce1da24b95ba8039cebe190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50
 --- !u!1 &384815558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1824,6 +1844,12 @@ Light:
     type: 3}
   m_PrefabInstance: {fileID: 1903055852}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1668998806 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5766901333063276050, guid: 8ca8ac09bb0821b42be341a026ff3e67,
+    type: 3}
+  m_PrefabInstance: {fileID: 1903055852}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1698229654
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2588,6 +2614,7 @@ GameObject:
   - component: {fileID: 1918000132}
   - component: {fileID: 1918000131}
   - component: {fileID: 1918000130}
+  - component: {fileID: 1918000133}
   m_Layer: 0
   m_Name: Minutera
   m_TagString: Untagged
@@ -2668,6 +2695,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918000128}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1918000133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918000128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3922d4f59ce1da24b95ba8039cebe190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &1956705683
 GameObject:
   m_ObjectHideFlags: 0
@@ -2680,6 +2720,7 @@ GameObject:
   - component: {fileID: 1956705684}
   - component: {fileID: 1956705686}
   - component: {fileID: 1956705687}
+  - component: {fileID: 1956705688}
   m_Layer: 2
   m_Name: Player
   m_TagString: Untagged
@@ -2750,6 +2791,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aux: {fileID: 288979546}
   maxHealth: 100
+  feedback: {fileID: 1956705688}
+  inmuneTime: 1
+--- !u!114 &1956705688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956705683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e13297cc20683e43bb00e1f2b43be84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 1791186056}
+  screenShakeForce: 0.2
+  screenShakeTime: 0.2
+  weaponsList:
+  - {fileID: 192455710}
+  - {fileID: 1668998806}
+  - {fileID: 261559078}
+  numOfBlinks: 3
 --- !u!1 &2043223992
 GameObject:
   m_ObjectHideFlags: 0
