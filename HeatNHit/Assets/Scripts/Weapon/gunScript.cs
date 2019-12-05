@@ -185,7 +185,7 @@ public class gunScript : MonoBehaviour
 
         if (hit.normal != Vector3.zero)
         {
-            GameObject impactGo = Instantiate(impactParticle, hit.point, Quaternion.LookRotation(hit.normal));
+            GameObject impactGo = Instantiate(impactParticle, hit.point + hit.normal * 0.1f, Quaternion.LookRotation(hit.normal));
             Destroy(impactGo, 1);
         }
     }
@@ -255,7 +255,7 @@ public class gunScript : MonoBehaviour
         activada = activate;
     }
 
-    void setArmaMesh(bool activada)
+    public void setArmaMesh(bool activada)
     {
         GetComponent<MeshRenderer>().enabled = activada;
     }

@@ -60,6 +60,11 @@ public class PlayerMove : MonoBehaviour
             loosedGrounding = true;
         }
 
+        if(m_VerticalSpeed > 0 && Input.GetButtonUp("Jump"))
+        {
+            m_VerticalSpeed *= 0.5f;
+        }
+
 
         if (loosedGrounding)
         {
