@@ -2,22 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NeedleDamage : MonoBehaviour
+public class DetectPlayer : MonoBehaviour
 {
-    public float damage;
-
-    void Start()
-    {
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if(other is CharacterController)
+        if (other is CharacterController)
         {
             PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
 
             if (playerHealth != null)
-                playerHealth.takeDamage(damage);
+                playerHealth.killPlayer();
         }
     }
 }

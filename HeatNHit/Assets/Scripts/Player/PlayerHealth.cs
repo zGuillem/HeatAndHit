@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     private Image obtingut;
     public float maxHealth = 100;
     public PlayerFeedback feedback;
+    public PlayerDisable playerDisable;
 
     public float inmuneTime = 0.5f;
 
@@ -44,6 +45,11 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void killPlayer()
+    {
+        updateHealth(-currentHealth);
+    }
+
     public void updateHealth(float value)
     {
         currentHealth += value;
@@ -51,7 +57,8 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth == 0.0f)
         {
-            //Debug.Log("MORT"); ---------------------------------------------------------
+            playerDisable.disableAll();
+            feedback.killed();
         }
         updateScreen();
     }
@@ -65,4 +72,6 @@ public class PlayerHealth : MonoBehaviour
     {
         return currentHealth / maxHealth;
     }
+
+
 }

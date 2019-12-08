@@ -14,12 +14,16 @@ public class PlayerFeedback : MonoBehaviour
     public int numOfBlinks = 5;
 
     private CameraShaker shaker;
+    private DeathEffectShader deathEffect;
     private List<gunScript> gunScriptList = new List<gunScript>();
 
     void Start()
     {
         shaker = cam.GetComponent<CameraShaker>();
         Debug.Assert(shaker != null);
+
+        deathEffect = cam.GetComponent<DeathEffectShader>();
+        Debug.Assert(deathEffect != null);
 
         for (int i = 0; i < weaponsList.Length; i++){ 
             gunScript gun = weaponsList[i].GetComponent<gunScript>();
@@ -32,6 +36,26 @@ public class PlayerFeedback : MonoBehaviour
     {
         shaker.Shake(screenShakeTime, screenShakeForce);
         StartCoroutine(blink(Time.time + inmuneTime, inmuneTime / numOfBlinks));
+    }
+
+    public void killed()
+    {
+        deathEffect.killStart();
+        StartCoroutine(timeSlow());
+    }
+
+    public IEnumerator timeSlow()
+    {
+        while (Time.timeScale > 0f)
+        {
+            float aux = Time.timeScale - (Time.unscaledDeltaTime / 2);
+            if (aux > 0f)
+                Time.timeScale = aux;
+            else
+                Time.timeScale = 0;
+            yield return null;
+        }
+        Time.timeScale = 1;
     }
 
     private IEnumerator blink(float endTime, float changePhaseTime)
@@ -53,8 +77,6 @@ public class PlayerFeedback : MonoBehaviour
         }
 
         changeWeaponVisualization(true);
-        
-
     }
 
     private void changeWeaponVisualization(bool value)

@@ -51,6 +51,11 @@ public class CamLook : MonoBehaviour
         cosJugador.Rotate(Vector3.up * ratoliX);
     }
 
+    public void Recoil(float s)
+    {
+        limitEix_X += s;
+        transform.Rotate(Vector3.left * s);
+    }
 
     private void Update()  // Actualitza la càmera.
     {

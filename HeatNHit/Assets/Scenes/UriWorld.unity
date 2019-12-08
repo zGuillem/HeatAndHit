@@ -638,6 +638,8 @@ GameObject:
   - component: {fileID: 384815560}
   - component: {fileID: 384815559}
   - component: {fileID: 384815563}
+  - component: {fileID: 384815565}
+  - component: {fileID: 384815564}
   m_Layer: 0
   m_Name: Mechanism
   m_TagString: Untagged
@@ -645,8 +647,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &384815559
-BoxCollider:
+--- !u!64 &384815559
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -655,9 +657,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &384815560
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -735,6 +738,31 @@ MonoBehaviour:
   minNeedle: {fileID: 883871765}
   secSpeed: 60
   minSpeed: 5
+--- !u!65 &384815564
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384815558}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 1, z: 3}
+  m_Center: {x: 0, y: -50, z: 0}
+--- !u!114 &384815565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384815558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1390cf1b33b64f14294fb57470d8a20b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &421907254
 GameObject:
   m_ObjectHideFlags: 0
@@ -1232,7 +1260,7 @@ Light:
   serializedVersion: 9
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1947,9 +1975,9 @@ GameObject:
   - component: {fileID: 1791186055}
   - component: {fileID: 1791186058}
   - component: {fileID: 1791186059}
-  - component: {fileID: 1791186057}
   - component: {fileID: 1791186060}
   - component: {fileID: 1791186061}
+  - component: {fileID: 1791186057}
   m_Layer: 2
   m_Name: Camera
   m_TagString: Untagged
@@ -2033,9 +2061,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1791186053}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e543baa6ae2f1842b95e7d6f38de664, type: 3}
+  m_Script: {fileID: 11500000, guid: 00a2500c0448ebc4cbf4be66891a607f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  usedCamera: {fileID: 1791186056}
+  effectMaterial: {fileID: 2100000, guid: 5f1a2da15174b9a45873821621ac31df, type: 2}
 --- !u!114 &1791186058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2721,6 +2751,7 @@ GameObject:
   - component: {fileID: 1956705686}
   - component: {fileID: 1956705687}
   - component: {fileID: 1956705688}
+  - component: {fileID: 1956705689}
   m_Layer: 2
   m_Name: Player
   m_TagString: Untagged
@@ -2792,6 +2823,7 @@ MonoBehaviour:
   aux: {fileID: 288979546}
   maxHealth: 100
   feedback: {fileID: 1956705688}
+  playerDisable: {fileID: 1956705689}
   inmuneTime: 1
 --- !u!114 &1956705688
 MonoBehaviour:
@@ -2812,7 +2844,24 @@ MonoBehaviour:
   - {fileID: 192455710}
   - {fileID: 1668998806}
   - {fileID: 261559078}
-  numOfBlinks: 3
+  numOfBlinks: 6
+--- !u!114 &1956705689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956705683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78c41b1869fa5fc43b060ac7357f0c82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMove: {fileID: 1956705686}
+  weaponList:
+  - {fileID: 192455710}
+  - {fileID: 1668998806}
+  - {fileID: 261559078}
 --- !u!1 &2043223992
 GameObject:
   m_ObjectHideFlags: 0

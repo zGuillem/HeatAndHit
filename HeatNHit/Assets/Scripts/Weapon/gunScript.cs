@@ -199,7 +199,7 @@ public class gunScript : MonoBehaviour
     void FeedbackPostShooting()
     {
         CameraShaker.Instance.Shake(screenShakeTime, screenShakeForce);
-        fpsCam.GetComponent<CamRecoil>().recoil(recoil);
+        fpsCam.GetComponent<CamLook>().Recoil(recoil);
 
         audioPlayer.playShoot();
     }

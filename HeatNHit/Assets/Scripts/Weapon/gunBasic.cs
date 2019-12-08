@@ -83,7 +83,7 @@ public class gunBasic : MonoBehaviour
         }
 
         //Feedback post dispar
-        fpsCam.GetComponent<CamRecoil>().recoil(recoilForce);
+        fpsCam.GetComponent<CamLook>().Recoil(recoilForce);
         GameObject impactGo = Instantiate(impactParticle, hit.point, Quaternion.LookRotation(hit.normal));
         Destroy(impactGo, 1);
     }
