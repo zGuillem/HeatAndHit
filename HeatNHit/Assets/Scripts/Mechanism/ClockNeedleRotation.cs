@@ -8,26 +8,22 @@ public class ClockNeedleRotation : MonoBehaviour
     public Transform secNeedle;
     public Transform minNeedle;
 
-    private float waitTime;
-    private Vector3 rotationVector = new Vector3(0f, 360 / 60, 0f);
+    public float secSpeed = 60f;
+    public float minSpeed = 5f;
 
     void Start()
     {
-       waitTime = Time.time + 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (waitTime <= Time.time)
-        {
-            rotateNeedle(secNeedle);
-            waitTime = Time.time + 0.5f;
-        }
+        rotateNeedle(secNeedle, new Vector3(0f, secSpeed * Time.deltaTime, 0f));
+        rotateNeedle(minNeedle, new Vector3(0f, minSpeed * Time.deltaTime, 0f));
     }
 
-    void rotateNeedle(Transform Needle)
+    void rotateNeedle(Transform Needle, Vector3 value)
     {
-        Needle.Rotate(rotationVector);
+        Needle.Rotate(value);
     }
 }
