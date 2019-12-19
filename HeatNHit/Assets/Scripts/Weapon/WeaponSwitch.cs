@@ -52,9 +52,9 @@ public class WeaponSwitch : MonoBehaviour
         foreach ( Transform weapon in transform)
         {
             if (i == SelectedWeapon)
-                weapon.GetComponent<gunScript>().setWeaponState(true);
+                weapon.GetChild(0).GetComponent<gunScript>().setWeaponState(true);
             else
-                weapon.GetComponent<gunScript>().setWeaponState(false);
+                weapon.GetChild(0).GetComponent<gunScript>().setWeaponState(false);
             i++;
         }
     }
