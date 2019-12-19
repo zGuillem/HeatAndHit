@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MaterialCold
-  m_Shader: {fileID: 4800000, guid: 48dca5b99d113b8d11006bab44295342, type: 3}
+  m_Name: ShotgunHot
+  m_Shader: {fileID: 4800000, guid: c86e23ee600e0d345a24c817f6acfd8a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -40,7 +40,8 @@ Material:
     - _Shininess: 0.7
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Emission: {r: 0, g: 0, b: 0, a: 0}
+    - _Emision: {r: 1, g: 1, b: 1, a: 1}
+    - _Emission: {r: 2.3731875, g: 0.45029715, b: 0.03651058, a: 1}
     - _MainTex_ST: {r: 1, g: 1, b: 0, a: 0}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}

@@ -5,6 +5,8 @@ using UnityEngine;
 
 //Author: Oriol Perarnau Arnau
 
+[ExecuteInEditMode] //See changes on editor
+
 public class placeHud : MonoBehaviour
 {
     //Class to place an image on the hud evading screen size issues
