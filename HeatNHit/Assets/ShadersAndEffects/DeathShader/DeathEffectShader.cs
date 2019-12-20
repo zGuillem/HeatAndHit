@@ -9,6 +9,7 @@ public class DeathEffectShader : MonoBehaviour
     public Material effectMaterial;
 
     private float tValue = 1.0f;
+    //MIRAR SI ES POT FER UN ACTIVATE
 
     private void Update()
     {

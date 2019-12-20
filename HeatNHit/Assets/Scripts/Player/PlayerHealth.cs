@@ -18,6 +18,8 @@ public class PlayerHealth : MonoBehaviour
 
     private float currentHealth = 100;
 
+    private bool killed = false;
+
     
     void Start()
     {
@@ -55,8 +57,9 @@ public class PlayerHealth : MonoBehaviour
         currentHealth += value;
         currentHealth = Mathf.Clamp(currentHealth, 0.0f, maxHealth);
 
-        if (currentHealth == 0.0f)
+        if (!killed && currentHealth == 0.0f)
         {
+            killed = true;
             playerDisable.disableAll();
             feedback.killed();
         }

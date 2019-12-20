@@ -13,6 +13,10 @@ public class PlayerFeedback : MonoBehaviour
 
     public int numOfBlinks = 5;
 
+    public PlayerScore scoreController;
+
+    public GameObject DeathHud;
+
     private CameraShaker shaker;
     private DeathEffectShader deathEffect;
     private List<gunScript> gunScriptList = new List<gunScript>();
@@ -42,19 +46,23 @@ public class PlayerFeedback : MonoBehaviour
     {
         deathEffect.killStart();
         StartCoroutine(timeSlow());
+        scoreController.animationToCenter();
+        DeathHud.GetComponent<deathHudController>().Show();
+        cam.GetComponent<CamLook>().DesfixarCursor();
     }
 
     public IEnumerator timeSlow()
     {
         while (Time.timeScale > 0f)
         {
-            float aux = Time.timeScale - (Time.unscaledDeltaTime / 2);
+            float aux = Time.timeScale - (Time.unscaledDeltaTime/2);
             if (aux > 0f)
                 Time.timeScale = aux;
             else
                 Time.timeScale = 0;
             yield return null;
         }
+        Debug.Log("Final");
         Time.timeScale = 1;
     }
 
