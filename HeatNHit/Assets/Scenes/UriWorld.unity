@@ -263,17 +263,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 1e7d5b5a1b9ccd04bb856f781553988f, type: 3}
+      objectReference: {fileID: 8300000, guid: a2bee06f45ee30143bfa016775c4b272, type: 3}
     - target: {fileID: 978084490821406336, guid: 04b054255b5510e4e8545c8de662b09d,
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 1e7d5b5a1b9ccd04bb856f781553988f, type: 3}
+      objectReference: {fileID: 8300000, guid: 4d0b07fd05741e141ba36fe1857eb8d3, type: 3}
     - target: {fileID: 8040923658022036683, guid: 04b054255b5510e4e8545c8de662b09d,
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 1e7d5b5a1b9ccd04bb856f781553988f, type: 3}
+      objectReference: {fileID: 8300000, guid: 8096fa860a66ab44d8aa06001e7f0693, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04b054255b5510e4e8545c8de662b09d, type: 3}
 --- !u!1 &192455710 stripped
@@ -3117,6 +3117,11 @@ PrefabInstance:
         type: 3}
       propertyPath: heat
       value: -0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5766901333063276061, guid: 8ca8ac09bb0821b42be341a026ff3e67,
+        type: 3}
+      propertyPath: brokenHeatDecreasedStep
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5766901333063276048, guid: 8ca8ac09bb0821b42be341a026ff3e67,
         type: 3}

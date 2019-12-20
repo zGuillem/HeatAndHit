@@ -240,12 +240,12 @@ public class gunScript : MonoBehaviour
         if (heat > 0 && heat < 1)
             return;
 
-        if (heat == 1)
+        if (heat == 1 && stateUpdate != BrokenStateUpdate)
         {
             stateUpdate = BrokenStateUpdate;
             audioPlayer.playBurnOut();
         }
-        else if (heat == 0)
+        else if (heat == 0 && stateUpdate != FunctionalStateUpdate)
         {
             stateUpdate = FunctionalStateUpdate;
             audioPlayer.plaplayColdOut();
