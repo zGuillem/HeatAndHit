@@ -8,23 +8,25 @@ using UnityEngine.AI;
  */
 public class Enemy : MonoBehaviour
 {
-    public  float AttackRadius;                                                                 //AttackRange
-    public  float Velocity; 
-    public  Animator Anim;                                                                      //Controlador de les animacions
+
+    [Header("Enemy properties")]
+    public float Velocity;
+    public Animator Anim;                                                                        //Controlador de les animacions
+    [SerializeField]
+    protected float LifePoints;                                                                 //Punts de vida actuals de l'enemic
+    [SerializeField]
+    protected EnemyAttackQueue EAQ;                                                             //Sistema de control de cua
+    public float MaxLifePoints;                                                                 //Punts de vida màxims de l'enemic
+    public float score;
+
+    [Header("Attack properties")]
+    public  float AttackRadius;                                                                 //AttackRange                           
     public  float TimeBetweenAttacks;
-
-
     protected bool Attacking = false;                                                            //Indica si el personatge ha atacat fa poc i 
                                                                                                 //s'ha d'esperar per poder tornar a atacar
     public float AttackTimer;                                                                   //Temps entre atacs
 
-    [SerializeField]
-    protected float LifePoints;                                                                 //Punts de vida actuals de l'enemic
-
-    [SerializeField]
-    protected EnemyAttackQueue EAQ;                                                             //Sistema de control de cua
-
-    public static float MaxLifePoints;                                                          //Punts de vida màxims de l'enemic
+    
     
     protected Transform target;                                                                 //Objectiu
 
@@ -100,8 +102,8 @@ public class Enemy : MonoBehaviour
         {
             if (CanAttack())
             {
-                //AskPermisionForAttack();
-                Attack();
+                AskPermisionForAttack();
+                //Attack();
             }
         }
         else
@@ -152,6 +154,7 @@ public class Enemy : MonoBehaviour
     virtual protected void Die()
     {
         Destroy(gameObject);
+        target.GetComponent<PlayerScore>().ScorePlus(score);
     }
 
     //Controla el rebre mal de l'enemic
@@ -178,6 +181,7 @@ public class Enemy : MonoBehaviour
 
     virtual public void AddKnockBack(float Power)
     {
+        print("AddKnockBack");
         Knockback = (transform.position - target.position).normalized * Power * KnockbackSensitivity;
     }
 

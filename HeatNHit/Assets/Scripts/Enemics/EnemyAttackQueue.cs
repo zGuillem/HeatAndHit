@@ -58,7 +58,6 @@ public class EnemyAttackQueue : MonoBehaviour
             {
                 UnqueueEnemy();
             }
-            print("EnemyUnqueued");
             timer = 0;
         }
     }

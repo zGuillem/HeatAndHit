@@ -13,10 +13,21 @@ public class Explosion : MonoBehaviour
         Collider [] ObjectsColliding = Physics.OverlapSphere(transform.position, radius);
         foreach (Collider objectColliding in ObjectsColliding)
         {
-            Rigidbody rb = objectColliding.GetComponent<Rigidbody>();
-            if (rb != null)
+            ImpactReciever ir = objectColliding.GetComponent<ImpactReciever>();
+
+
+            if ( ir != null)
             {
-                rb.AddExplosionForce(force, transform.position, radius);
+                ir.AddImpact(ir.transform.position - transform.position, force);
+            }
+            else
+            {
+                Rigidbody rb = objectColliding.GetComponent<Rigidbody>();
+
+                if (rb != null)
+                {
+                    rb.AddExplosionForce(force, transform.position, radius);
+                }
             }
         }
         Destroy(gameObject);

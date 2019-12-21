@@ -20,12 +20,7 @@ public class FlyingEnemy : Enemy
 
     override protected void Constructor()
     {
-        AttackRadius = 15f;
-        Velocity = 0.2f;
-        TimeBetweenAttacks = 5f;
-        MaxLifePoints = 20f;
-        AttackTimer = 0f;
-        KnockbackGrowth = 0.1f;
+
         base.Constructor();
     }
 

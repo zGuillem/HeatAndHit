@@ -51,7 +51,6 @@ public class WeaponSwitch : MonoBehaviour
         int i = 0;
         foreach ( Transform weapon in transform)
         {
-            print(weapon);
             if (i == SelectedWeapon)
                 weapon.GetChild(0).GetComponent<gunScript>().setWeaponState(true);
             else

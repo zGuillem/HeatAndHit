@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 334370779856554890}
   - component: {fileID: 6685998675358085146}
   - component: {fileID: 836688250}
+  - component: {fileID: 2684954193473342314}
   m_Layer: 0
   m_Name: ExplodingEnemy
   m_TagString: Untagged
@@ -123,8 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8532311296732423828}
-  EnemyScript: {fileID: 8742824210203620201, guid: a83651e327696a941baf0292b246f4b7,
-    type: 3}
+  EnemyScript: {fileID: 0}
 --- !u!136 &6685998675358085146
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -151,18 +151,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 039a724b78ddf3a42913229275c776e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackRadius: 0
-  Velocity: 0
-  Anim: {fileID: 0}
-  TimeBetweenAttacks: 0
-  AttackTimer: 0
+  Velocity: 1
+  Anim: {fileID: 8532311296732423829}
   LifePoints: 0
   EAQ: {fileID: 0}
+  MaxLifePoints: 10
+  AttackRadius: 1
+  TimeBetweenAttacks: 0
+  AttackTimer: 0
   Knockback: {x: 0, y: 0, z: 0}
-  KnockbackGrowth: 0
-  KnockbackSensitivity: 0
+  KnockbackGrowth: 0.8
+  KnockbackSensitivity: 100
   explosion: {fileID: 6662407097883623419, guid: a7866fe474425c54d8ea2407cbd52956,
     type: 3}
+--- !u!114 &2684954193473342314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8532311296732423831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a50db9e19511e4a99c54292fd68b84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8532311296732423828}
+  EnemyScript: {fileID: 836688250}
 --- !u!1001 &8921417584067461505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -170,11 +185,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8532311296732423822}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 7db68a9cf61e33d448b73c77e1a0ccc5,
-        type: 3}
-      propertyPath: m_Name
-      value: Robot
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7db68a9cf61e33d448b73c77e1a0ccc5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -250,6 +260,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9e4a5b5268d5f0948ab5e826271064ae, type: 2}
+    - target: {fileID: -927199367670048503, guid: 7db68a9cf61e33d448b73c77e1a0ccc5,
+        type: 3}
+      propertyPath: m_Name
+      value: Robot
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7db68a9cf61e33d448b73c77e1a0ccc5, type: 3}
 --- !u!4 &4518670396607326875 stripped
