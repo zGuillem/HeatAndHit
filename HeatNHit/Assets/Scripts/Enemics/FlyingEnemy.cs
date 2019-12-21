@@ -86,16 +86,11 @@ public class FlyingEnemy : Enemy
         transform.Translate( new Vector3(0, Altura - transform.position.y + Knockback.y, 0) * Velocity * Time.deltaTime, Space.World);
     }
 
-
-    /*
-    private void DoAttackAnimation()
+    private void OnCollisionEnter(Collision collision)
     {
-        float newPositionY = originalPosition[1] * AttackAnimationY.Evaluate(AnimationTime);
-        newPositionY = newPositionY - transform.position.y;
-        float valorForward = AttackAnimationForward.Evaluate(AnimationTime);
-        Vector2 direccio = transform.forward * valorForward;
-        transform.Translate(new Vector3(direccio[0], newPositionY, direccio[1]), Space.World);
-        updateAnimationTime();
+        if (collision.transform == target)
+        {
+            DamageTarget();
+        }
     }
-    */
 }

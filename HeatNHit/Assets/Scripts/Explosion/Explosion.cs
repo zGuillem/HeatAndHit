@@ -5,7 +5,7 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     public float radius;
-
+    public float damage;
     public float force;
 
     void Start()
@@ -14,11 +14,10 @@ public class Explosion : MonoBehaviour
         foreach (Collider objectColliding in ObjectsColliding)
         {
             ImpactReciever ir = objectColliding.GetComponent<ImpactReciever>();
-
-
             if ( ir != null)
             {
                 ir.AddImpact(ir.transform.position - transform.position, force);
+                objectColliding.GetComponent<PlayerHealth>().takeDamage(damage);
             }
             else
             {
@@ -33,4 +32,8 @@ public class Explosion : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void AddDamage(float dam)
+    {
+        damage = dam;
+    }
 }

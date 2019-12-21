@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExplodingEnemy : Enemy
 {
-    public GameObject explosion;
+    public Explosion explosion;
 
     protected override void Constructor()
     {
@@ -26,6 +26,7 @@ public class ExplodingEnemy : Enemy
     public void Explode()
     {
         Instantiate(explosion, transform.position, transform.rotation, transform.parent);
+        explosion.AddDamage(damage);
         Die();
     }
 }

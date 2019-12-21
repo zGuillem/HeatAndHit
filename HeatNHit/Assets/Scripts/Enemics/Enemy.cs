@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     public float score;
 
     [Header("Attack properties")]
+    public float damage;
     public  float AttackRadius;                                                                 //AttackRange                           
     public  float TimeBetweenAttacks;
     protected bool Attacking = false;                                                            //Indica si el personatge ha atacat fa poc i 
@@ -188,5 +189,11 @@ public class Enemy : MonoBehaviour
     virtual protected void UpdateKnockback()
     {
         Knockback *= KnockbackGrowth;
+    }
+
+    virtual protected void DamageTarget()
+    {
+        target.GetComponent<PlayerHealth>().takeDamage(damage);
+
     }
 }
