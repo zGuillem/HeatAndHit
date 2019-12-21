@@ -30,7 +30,7 @@ public class ExplodingEnemy : Enemy
 
     public void Explode()
     {
-        Instantiate(explosion, transform.position, transform.rotation);
+        Instantiate(explosion, transform.position, transform.rotation, transform.parent);
         Die();
     }
 }
