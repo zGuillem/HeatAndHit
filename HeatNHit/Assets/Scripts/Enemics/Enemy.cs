@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     protected EnemyAttackQueue EAQ;                                                             //Sistema de control de cua
     public float MaxLifePoints;                                                                 //Punts de vida màxims de l'enemic
-    public float score;
+    public int score;
 
     [Header("Attack properties")]
     public float damage;
