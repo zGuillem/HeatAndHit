@@ -25,7 +25,15 @@ public class FlyingEnemy : Enemy
         TimeBetweenAttacks = 5f;
         MaxLifePoints = 20f;
         AttackTimer = 0f;
+        KnockbackGrowth = 0.1f;
         base.Constructor();
+    }
+
+
+    override protected void MoveTowardsTarget()
+    {
+        base.MoveTowardsTarget();
+        LevelHeight();
     }
 
     //Es vol que l'enemic es mogui cap el jugador i que estigui sempre a la mateixa altura
@@ -36,11 +44,8 @@ public class FlyingEnemy : Enemy
         //Calculem el moviment horitzontal de l'enemic
         Vector2 moveH = new Vector2(target.position.x - transform.position.x, target.position.z - transform.position.z);
 
-        //Calculem el moviment vertical de l'enemic
-        float moveV = Altura - transform.position.y;
-
         //Creem el vector de moviment final afegint-li el knockback que pugui tenir
-        Vector3 senseKnockback = new Vector3(moveH[0], moveV, moveH[1]) * Velocity;
+        Vector3 senseKnockback = new Vector3(moveH[0], 0, moveH[1]) * Velocity;
         Vector3 finalmove = (senseKnockback + Knockback) * Time.deltaTime;
         return finalmove;
     }
@@ -80,6 +85,12 @@ public class FlyingEnemy : Enemy
             OnAttackFinish();
         }
     }
+
+    private void LevelHeight()
+    {
+        transform.Translate( new Vector3(0, Altura - transform.position.y + Knockback.y, 0) * Velocity * Time.deltaTime, Space.World);
+    }
+
 
     /*
     private void DoAttackAnimation()

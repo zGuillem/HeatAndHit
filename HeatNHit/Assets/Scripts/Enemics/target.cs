@@ -13,7 +13,7 @@ public class target : MonoBehaviour
         rb.AddForce(forca, ForceMode.Impulse);*/
         if (EnemyScript != null)
         {
-            EnemyScript.TakeDamage(0);
+            EnemyScript.TakeDamage(damage);
             EnemyScript.AddKnockBack(impactForce);
         }
         

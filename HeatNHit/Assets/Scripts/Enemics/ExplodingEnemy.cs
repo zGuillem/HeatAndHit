@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WalkingEnemy : Enemy
+public class ExplodingEnemy : Enemy
 {
-
+    public GameObject explosion;
     protected override void Constructor()
     {
         AttackRadius = 3f;
@@ -21,4 +21,16 @@ public class WalkingEnemy : Enemy
         Knockback.y = 0;
     }
 
+    public override void OnAttackFinish()
+    {
+
+        Explode();
+        
+    }
+
+    public void Explode()
+    {
+        Instantiate(explosion, transform.position, transform.rotation);
+        Die();
+    }
 }

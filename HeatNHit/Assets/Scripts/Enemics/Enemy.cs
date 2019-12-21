@@ -27,8 +27,15 @@ public class Enemy : MonoBehaviour
     public static float MaxLifePoints;                                                          //Punts de vida màxims de l'enemic
     
     protected Transform target;                                                                 //Objectiu
+
+
+    [Header("Knockback properties")]
+    [SerializeField]
     protected Vector3 Knockback;                                                                //Retrocés que té un enemic després de ser disparat
+    [SerializeField]
     protected float KnockbackGrowth;                                                            //Rati amb el que disminueix el Knockback
+    [SerializeField]
+    protected float KnockbackSensitivity;                                                       //Multiplicador, indica la sensibilitat de l'enemic al knockback
     virtual protected void Start()
     {
         Constructor();
@@ -49,6 +56,8 @@ public class Enemy : MonoBehaviour
     {
         //Anim.ResetTrigger("InAttackRange");
         MoveTowardsTarget();
+        UpdateAttackTimer();
+        UpdateKnockback();
     }
 
     //Girem l'enemic en la direcció del jugador
@@ -99,9 +108,6 @@ public class Enemy : MonoBehaviour
         {
             transform.Translate(move, Space.World);
         }
-
-
-        UpdateAttackTimer();
     }
 
     //Aconsegueix el vector direcció cap a l'objectiu
@@ -130,9 +136,9 @@ public class Enemy : MonoBehaviour
     //Fa l'atac
     virtual protected void Attack()
     {
-        //attacking = true;
-        /*gameObject.GetComponent<Rigidbody>().isKinematic = true;
-        Anim.SetTrigger("InAttackRange");*/
+        Attacking = true;
+        /*gameObject.GetComponent<Rigidbody>().isKinematic = true;*/
+        Anim.SetTrigger("InAttackRange");
     }
 
     //Actaulitza l'enemic quan s'acaba l'animació d'atac
@@ -172,7 +178,7 @@ public class Enemy : MonoBehaviour
 
     virtual public void AddKnockBack(float Power)
     {
-        Knockback = (transform.position - target.position).normalized * Power;
+        Knockback = (transform.position - target.position).normalized * Power * KnockbackSensitivity;
     }
 
     virtual protected void UpdateKnockback()
