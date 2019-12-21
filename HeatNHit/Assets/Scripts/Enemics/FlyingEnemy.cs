@@ -20,7 +20,6 @@ public class FlyingEnemy : Enemy
 
     override protected void Constructor()
     {
-
         base.Constructor();
     }
 

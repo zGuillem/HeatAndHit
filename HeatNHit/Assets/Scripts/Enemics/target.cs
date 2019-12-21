@@ -17,7 +17,7 @@ public class target : MonoBehaviour
 
         if (EnemyScript != null)
         {
-            EnemyScript.TakeDamage(0);
+            EnemyScript.TakeDamage(damage);
             EnemyScript.AddKnockBack(impactForce);
         }
         
