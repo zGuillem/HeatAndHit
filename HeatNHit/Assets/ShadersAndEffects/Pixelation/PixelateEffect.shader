@@ -49,6 +49,7 @@
 				uv.y = round(uv.y * _Rows)/_Rows;
 
                 fixed4 col = tex2D(_MainTex, uv);
+
                 return col;
             }
             ENDCG

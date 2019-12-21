@@ -9,8 +9,18 @@ public class PlayerHealth : MonoBehaviour
     public GameObject aux;
     private Image obtingut;
     public float maxHealth = 100;
+    public PlayerFeedback feedback;
+    public PlayerDisable playerDisable;
+
+    public float inmuneTime = 0.5f;
+
+    private float nextInmuneTime = 0;
 
     private float currentHealth = 100;
+
+    private bool killed = false;
+
+    
     void Start()
     {
         obtingut = aux.GetComponent<Image>();
@@ -21,17 +31,37 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-       updateHealth(10f * Time.deltaTime);
+        if (Input.GetButtonDown("AutoDamage"))
+        {
+            updateHealth(10);
+        }
+    }
+
+    public void takeDamage(float value)
+    {
+        if (Time.time > nextInmuneTime)
+        {
+            nextInmuneTime = Time.time + inmuneTime;
+            updateHealth(-value);
+            feedback.gotHit(inmuneTime);
+        }
+    }
+
+    public void killPlayer()
+    {
+        updateHealth(-currentHealth);
     }
 
     public void updateHealth(float value)
     {
-        currentHealth -= value;
+        currentHealth += value;
         currentHealth = Mathf.Clamp(currentHealth, 0.0f, maxHealth);
 
-        if (currentHealth == 0.0f)
+        if (!killed && currentHealth == 0.0f)
         {
-            //Debug.Log("MORT"); ---------------------------------------------------------
+            killed = true;
+            playerDisable.disableAll();
+            feedback.killed();
         }
         updateScreen();
     }
@@ -45,4 +75,6 @@ public class PlayerHealth : MonoBehaviour
     {
         return currentHealth / maxHealth;
     }
+
+
 }

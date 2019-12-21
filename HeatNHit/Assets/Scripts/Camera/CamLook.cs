@@ -27,6 +27,11 @@ public class CamLook : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    public void DesfixarCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     private void RotacioCamera() //Gestiona la rotació de la camara per mitjà de l'input del ratolí.
     {
         float ratoliX = Input.GetAxis(inputXRatoli) * sensibilitatRatoli * Time.deltaTime;
@@ -51,6 +56,11 @@ public class CamLook : MonoBehaviour
         cosJugador.Rotate(Vector3.up * ratoliX);
     }
 
+    public void Recoil(float s)
+    {
+        limitEix_X += s;
+        transform.Rotate(Vector3.left * s);
+    }
 
     private void Update()  // Actualitza la càmera.
     {

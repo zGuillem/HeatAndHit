@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//[ExecuteInEditMode] //See changes on editor
 public class gunScript : MonoBehaviour
 {
     //Variables publiques ------------------------------------------------
@@ -44,6 +45,7 @@ public class gunScript : MonoBehaviour
     public float screenShakeForce;                                          //Screen shake force after shooting
     public float screenShakeTime;                                           //Screen shake time after shooting
     public weaponAudio audioPlayer;
+    public Animator animationPlayer;
 
 
     //Heat treatment
@@ -159,16 +161,15 @@ public class gunScript : MonoBehaviour
 
     private IEnumerator MeleeAttack(float damage)
     {
-        float timePassed = Time.time;
-        float waitTime = Time.time + 10f;           //Duracio de l'atac de l'espasa
+        float waitTime = Time.time + 1f;           //Duracio de l'atac de l'espasa
 
-        while(timePassed < waitTime)
+        while(Time.time < waitTime)
         {
-            timePassed += Time.time;
+            ShootABullet(transform.position, transform.forward, damage);
             yield return null;
         }
 
-        ShootABullet(transform.position, transform.forward, damage); 
+        
     }
 
     void ShootABullet(Vector3 fromPoint, Vector3 direction, float damage)
@@ -185,7 +186,7 @@ public class gunScript : MonoBehaviour
 
         if (hit.normal != Vector3.zero)
         {
-            GameObject impactGo = Instantiate(impactParticle, hit.point, Quaternion.LookRotation(hit.normal));
+            GameObject impactGo = Instantiate(impactParticle, hit.point + hit.normal * 0.1f, Quaternion.LookRotation(hit.normal));
             Destroy(impactGo, 1);
         }
     }
@@ -198,8 +199,12 @@ public class gunScript : MonoBehaviour
 
     void FeedbackPostShooting()
     {
+        if (animationPlayer != null)
+            animationPlayer.SetTrigger("StartAttack");
+
+
         CameraShaker.Instance.Shake(screenShakeTime, screenShakeForce);
-        fpsCam.GetComponent<CamRecoil>().recoil(recoil);
+        fpsCam.GetComponent<CamLook>().Recoil(recoil);
 
         audioPlayer.playShoot();
     }
@@ -222,6 +227,7 @@ public class gunScript : MonoBehaviour
 
     void UpdateMaterial()
     {
+
         rend.material.Lerp(cold, hot, heatCurve.Evaluate(heat));
         //heatLight.intensity = heatCurve.Evaluate(heat);
     }
@@ -255,7 +261,7 @@ public class gunScript : MonoBehaviour
         activada = activate;
     }
 
-    void setArmaMesh(bool activada)
+    public void setArmaMesh(bool activada)
     {
         GetComponent<MeshRenderer>().enabled = activada;
     }
