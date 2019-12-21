@@ -1,6 +1,7 @@
-Shader "Toon/Lit" {
+Shader "Toon/Emitting" {
 	Properties {
 		_Color ("Main Color", Color) = (0.5,0.5,0.5,1)
+		_Emission("Emision Color", Color) = (1.0,1.0,1.0,1)
 		_MainTex ("Base (RGB)", 2D) = "white" {}
 		_Ramp ("Toon Ramp (RGB)", 2D) = "gray" {} 
 	}
@@ -27,7 +28,7 @@ inline half4 LightingToonRamp (SurfaceOutput s, half3 lightDir, half atten)
 	half3 ramp = tex2D (_Ramp, float2(d,d)).rgb;
 	
 	half4 c;
-	c.rgb = s.Albedo * _LightColor0.rgb * ramp;// *(atten * 2);
+	c.rgb = s.Albedo * _LightColor0.rgb * ramp; //* (atten* 2);
 	c.a = 0;
 	return c;
 }
@@ -35,6 +36,7 @@ inline half4 LightingToonRamp (SurfaceOutput s, half3 lightDir, half atten)
 
 sampler2D _MainTex;
 float4 _Color;
+float4 _Emission;
 
 struct Input {
 	float2 uv_MainTex : TEXCOORD0;
@@ -44,6 +46,7 @@ void surf (Input IN, inout SurfaceOutput o) {
 	half4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
 	o.Albedo = c.rgb;
 	o.Alpha = c.a;
+	o.Emission = _Emission;
 }
 ENDCG
 

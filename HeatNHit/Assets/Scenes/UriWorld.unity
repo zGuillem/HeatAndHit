@@ -2579,10 +2579,38 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1635606444574120418, guid: e946936e171a1c946851feba9f12c9da,
+        type: 3}
+      propertyPath: impactParticle
+      value: 
+      objectReference: {fileID: 8394400169434540328, guid: 7197d3be21c12a74cb4d204cecacb14e,
+        type: 3}
+    - target: {fileID: 5096651256305405755, guid: e946936e171a1c946851feba9f12c9da,
+        type: 3}
+      propertyPath: impactParticle
+      value: 
+      objectReference: {fileID: 8394400169434540328, guid: 7197d3be21c12a74cb4d204cecacb14e,
+        type: 3}
     - target: {fileID: 6351042537259309600, guid: e946936e171a1c946851feba9f12c9da,
         type: 3}
       propertyPath: fireRate
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 6351042537259309600, guid: e946936e171a1c946851feba9f12c9da,
+        type: 3}
+      propertyPath: impactParticle
+      value: 
+      objectReference: {fileID: 8394400169434540328, guid: 7197d3be21c12a74cb4d204cecacb14e,
+        type: 3}
+    - target: {fileID: 1954577412190591632, guid: e946936e171a1c946851feba9f12c9da,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 031c6875f7fa8964da56b619bd7a4195, type: 3}
+    - target: {fileID: 8729610036517925083, guid: e946936e171a1c946851feba9f12c9da,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c7d36fc532521d6478840666fb74503a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e946936e171a1c946851feba9f12c9da, type: 3}
