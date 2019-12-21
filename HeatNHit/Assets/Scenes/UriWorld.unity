@@ -567,7 +567,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9e4a5b5268d5f0948ab5e826271064ae, type: 2}
+  - {fileID: 2100000, guid: cd950a2e1f9a79d4081d3f423b5b8ce6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -771,7 +771,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9e4a5b5268d5f0948ab5e826271064ae, type: 2}
+  - {fileID: 2100000, guid: c9e6294c9d11cb8d11006bf944295342, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -961,7 +961,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &552899809
 Light:
   m_ObjectHideFlags: 0
@@ -974,7 +974,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 27.02
+  m_Range: 15.19
   m_SpotAngle: 22.8
   m_InnerSpotAngle: 8.4
   m_CookieSize: 10
@@ -1015,7 +1015,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -1030,7 +1030,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 552899808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.93, z: 0}
+  m_LocalPosition: {x: 0, y: 0.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1052,7 +1052,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &705507994
 Light:
   m_ObjectHideFlags: 0
@@ -1121,7 +1121,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 6.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2172,7 +2172,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9e4a5b5268d5f0948ab5e826271064ae, type: 2}
+  - {fileID: 2100000, guid: cd950a2e1f9a79d4081d3f423b5b8ce6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2585,12 +2585,37 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8394400169434540328, guid: 7197d3be21c12a74cb4d204cecacb14e,
         type: 3}
+    - target: {fileID: 1635606444574120418, guid: e946936e171a1c946851feba9f12c9da,
+        type: 3}
+      propertyPath: cold
+      value: 
+      objectReference: {fileID: 2100000, guid: 441bda532ca264c41b3d6e359ea0c7ff, type: 2}
+    - target: {fileID: 1635606444574120418, guid: e946936e171a1c946851feba9f12c9da,
+        type: 3}
+      propertyPath: hot
+      value: 
+      objectReference: {fileID: 2100000, guid: 3b6dc9fed6fbf334fb5aa82fcb87d099, type: 2}
+    - target: {fileID: 5096651256305405750, guid: e946936e171a1c946851feba9f12c9da,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2e3ced34bce77a94fbfd89c238138e0e, type: 2}
     - target: {fileID: 5096651256305405755, guid: e946936e171a1c946851feba9f12c9da,
         type: 3}
       propertyPath: impactParticle
       value: 
       objectReference: {fileID: 8394400169434540328, guid: 7197d3be21c12a74cb4d204cecacb14e,
         type: 3}
+    - target: {fileID: 5096651256305405755, guid: e946936e171a1c946851feba9f12c9da,
+        type: 3}
+      propertyPath: cold
+      value: 
+      objectReference: {fileID: 2100000, guid: 2e3ced34bce77a94fbfd89c238138e0e, type: 2}
+    - target: {fileID: 5096651256305405755, guid: e946936e171a1c946851feba9f12c9da,
+        type: 3}
+      propertyPath: hot
+      value: 
+      objectReference: {fileID: 2100000, guid: ed492f38d922c2c44908c54236817a9d, type: 2}
     - target: {fileID: 6351042537259309600, guid: e946936e171a1c946851feba9f12c9da,
         type: 3}
       propertyPath: fireRate
@@ -2602,6 +2627,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8394400169434540328, guid: 7197d3be21c12a74cb4d204cecacb14e,
         type: 3}
+    - target: {fileID: 1635606444092579399, guid: e946936e171a1c946851feba9f12c9da,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1954577412190591632, guid: e946936e171a1c946851feba9f12c9da,
         type: 3}
       propertyPath: m_audioClip
