@@ -22,6 +22,7 @@ public class target : MonoBehaviour
         }
         else
         {
+            print("hola");
             Vector3 forca = -normal * impactForce;
             rb.AddForce(forca, ForceMode.Impulse);
         }

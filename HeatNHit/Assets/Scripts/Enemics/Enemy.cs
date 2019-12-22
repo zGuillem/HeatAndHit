@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     protected EnemyAttackQueue EAQ;                                                             //Sistema de control de cua
     public float MaxLifePoints;                                                                 //Punts de vida màxims de l'enemic
     public int score;
+    public bool dead;
 
     [Header("Attack properties")]
     public float damage;
@@ -27,11 +28,10 @@ public class Enemy : MonoBehaviour
     protected bool Attacking = false;                                                            //Indica si el personatge ha atacat fa poc i 
                                                                                                 //s'ha d'esperar per poder tornar a atacar
     public float AttackTimer;                                                                   //Temps entre atacs
-
-    
-    
     protected Transform target;                                                                 //Objectiu
 
+    [Header("Particles")]
+    public ParticleSystem deathParticles;
 
     [Header("Knockback properties")]
     [SerializeField]
@@ -59,9 +59,13 @@ public class Enemy : MonoBehaviour
     virtual protected void Update()
     {
         //Anim.ResetTrigger("InAttackRange");
-        MoveTowardsTarget();
-        UpdateAttackTimer();
-        UpdateKnockback();
+        if (!dead)
+        {
+            MoveTowardsTarget();
+            UpdateAttackTimer();
+            UpdateKnockback();
+        }
+
     }
 
     //Girem l'enemic en la direcció del jugador
@@ -172,6 +176,15 @@ public class Enemy : MonoBehaviour
 
     //Controla la mort de l'enemic
     virtual protected void Die()
+    {
+        Rigidbody rb = transform.GetComponent<Rigidbody>();
+        rb.isKinematic = false;
+        rb.useGravity = true;
+        dead = true;
+        Anim.SetTrigger("Death");
+    }
+
+    virtual protected void Death()
     {
         Destroy(gameObject);
         target.GetComponent<PlayerScore>().ScorePlus(score);
