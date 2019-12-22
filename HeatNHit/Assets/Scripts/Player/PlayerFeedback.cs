@@ -23,6 +23,8 @@ public class PlayerFeedback : MonoBehaviour
 
     private playerAudio audioController;
 
+    private bool moving = false;
+
     void Start()
     {
         shaker = cam.GetComponent<CameraShaker>();
@@ -104,5 +106,13 @@ public class PlayerFeedback : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void playerMoving(bool value)
+    {
+        if (value == moving)
+            return;
+
+
     }
 }

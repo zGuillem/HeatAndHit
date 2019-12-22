@@ -580,6 +580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 1635606444455362398}
+  feedback: {fileID: 1635606444455362386}
   PlayerSpeed: 10
   JumpSpeed: 12
   gravity: -30
@@ -1853,6 +1854,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -1388485733357891733, guid: 7690828ed71dca04995c1ca26d9240b5,
         type: 3}
+    - target: {fileID: 5661509533541721410, guid: 1ea44962316e63e43b85066185717d05,
+        type: 3}
+      propertyPath: heatStep
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 5661509533541721410, guid: 1ea44962316e63e43b85066185717d05,
         type: 3}
       propertyPath: cold
