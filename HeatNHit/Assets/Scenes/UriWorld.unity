@@ -1295,8 +1295,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: GAME OVER
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5a7d05d0663985a49bc7caf84adcd5a4, type: 2}
+  m_sharedMaterial: {fileID: -382564655687352561, guid: 5a7d05d0663985a49bc7caf84adcd5a4,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1305,7 +1306,7 @@ MonoBehaviour:
     rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
-  m_colorMode: 3
+  m_colorMode: 0
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
     topRight: {r: 1, g: 1, b: 1, a: 1}
@@ -1321,8 +1322,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 82.3
-  m_fontSizeBase: 82.3
+  m_fontSize: 105.96
+  m_fontSizeBase: 105.96
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1800,7 +1801,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 771647d94a5a8224a804c52daa56f8ee, type: 3}
     m_FontSize: 70
     m_FontStyle: 0
     m_BestFit: 1
@@ -2569,12 +2570,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cd32fd1dad3950a46b0f900a568b3318, type: 2}
+      objectReference: {fileID: 2100000, guid: 9e4a5b5268d5f0948ab5e826271064ae, type: 2}
     - target: {fileID: 8255323164013916452, guid: e946936e171a1c946851feba9f12c9da,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: cd32fd1dad3950a46b0f900a568b3318, type: 2}
+      objectReference: {fileID: 2100000, guid: 9e4a5b5268d5f0948ab5e826271064ae, type: 2}
     - target: {fileID: 6351042537259309600, guid: e946936e171a1c946851feba9f12c9da,
         type: 3}
       propertyPath: heatStep
@@ -2595,10 +2596,45 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2083293548004897291, guid: e946936e171a1c946851feba9f12c9da,
+        type: 3}
+      propertyPath: ShapeModule.m_Rotation.y
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083293548004897291, guid: e946936e171a1c946851feba9f12c9da,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083293548004897291, guid: e946936e171a1c946851feba9f12c9da,
+        type: 3}
+      propertyPath: ShapeModule.type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083293548004897291, guid: e946936e171a1c946851feba9f12c9da,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 0.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083293548004897291, guid: e946936e171a1c946851feba9f12c9da,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 2.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083293548004897291, guid: e946936e171a1c946851feba9f12c9da,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
     - target: {fileID: 1260484084678606440, guid: e946936e171a1c946851feba9f12c9da,
         type: 3}
       propertyPath: m_Name
       value: EscopetParticle
       objectReference: {fileID: 0}
+    - target: {fileID: 7784844091061642303, guid: e946936e171a1c946851feba9f12c9da,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9e4a5b5268d5f0948ab5e826271064ae, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e946936e171a1c946851feba9f12c9da, type: 3}
