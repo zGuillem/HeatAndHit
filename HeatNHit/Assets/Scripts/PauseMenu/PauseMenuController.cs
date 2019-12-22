@@ -74,4 +74,10 @@ public class PauseMenuController : MonoBehaviour
             comprovant.verticalPixels = newValue;
         }
     }
+
+    public void onResumeButton()
+    {
+        inPauseMenu = false;
+        hide();
+    }
 }
