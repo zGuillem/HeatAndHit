@@ -21,6 +21,8 @@ public class PlayerFeedback : MonoBehaviour
     private DeathEffectShader deathEffect;
     private List<gunScript> gunScriptList = new List<gunScript>();
 
+    private playerAudio audioController;
+
     void Start()
     {
         shaker = cam.GetComponent<CameraShaker>();
@@ -34,10 +36,15 @@ public class PlayerFeedback : MonoBehaviour
 
             gunScriptList.Add(gun);
         }
+
+        audioController = GetComponentInChildren<playerAudio>();
+        Debug.Assert(audioController != null);
+
     }
 
     public void gotHit(float inmuneTime)
     {
+        audioController.playHurt();
         shaker.Shake(screenShakeTime, screenShakeForce);
         StartCoroutine(blink(Time.time + inmuneTime, inmuneTime / numOfBlinks));
     }
@@ -62,7 +69,6 @@ public class PlayerFeedback : MonoBehaviour
                 Time.timeScale = 0;
             yield return null;
         }
-        Debug.Log("Final");
         Time.timeScale = 1;
     }
 

@@ -26,13 +26,13 @@ public class deathHudController : MonoBehaviour
 
     public void playAgainButtonOnClicked()
     {
-        Debug.Log("Hrllo");
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void menuButtonOnClicked()
     {
-        Debug.Log("hola");
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
