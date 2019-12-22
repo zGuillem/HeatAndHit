@@ -12,6 +12,6 @@ public class MenuController : MonoBehaviour
 
     public void quitButtonOnClicked()
     {
-        Debug.Log("EXITING... FAILED, WELCOME TO SAO");
+        Application.Quit();
     }
 }
