@@ -14,21 +14,23 @@ public class placeHud : MonoBehaviour
     public enum borderVertical
     {
         Up,
+        Center,
         Down
     }
 
     public enum borderHorizontal
     {
         Left,
+        Center,
         Right
     }
 
     public borderVertical vertical;                 //Which side on the vertical axis use as anchor
     public borderHorizontal horizontal;             //Which side on the horizontal axis use as anchor
 
-
-    public float pos_x;                             //Position in X that the image must be from anchor
     public float pos_y;                             //Position in Y that the image must be from anchor
+    public float pos_x;                             //Position in X that the image must be from anchor
+    
 
     public RectTransform objectToMove;              //Reference to the RectTransform of the object
 
@@ -49,6 +51,9 @@ public class placeHud : MonoBehaviour
             case borderHorizontal.Left:
                 newX = -width + pos_x;
                 break;
+            case borderHorizontal.Center:
+                newX = pos_x;
+                break;
         }
 
         switch (vertical)       //Calculate new position in anchor
@@ -58,6 +63,9 @@ public class placeHud : MonoBehaviour
                 break;
             case borderVertical.Down:
                 newY = -height + pos_y;
+                break;
+            case borderVertical.Center:
+                newY = pos_y;
                 break;
         }
 

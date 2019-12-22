@@ -81,7 +81,7 @@ public class PlayerMove : MonoBehaviour
         //                condition  ? consequent  : alternative  ;
 
         move = move * usedSpeed * Time.deltaTime;
-        feedback.playerMoving(move.magnitude > 0.1f);
+        feedback.playerMoving(m_Grounded && move.magnitude > 0.1f);
 
         move = transform.TransformDirection(move);
         characterController.Move(move);

@@ -38,7 +38,7 @@ public class PlayerScore : MonoBehaviour
         while((rectText.localPosition).magnitude > 4)
         {
             rectText.localPosition = rectText.localPosition * 0.85f;// += (-rectText.localPosition).normalized * 100 * Time.unscaledDeltaTime;
-            rectText.localScale += new Vector3(0.5f, 0.5f, 0.5f) * Time.unscaledDeltaTime;
+            rectText.localScale += new Vector3(1f, 1f, 1f) * Time.unscaledDeltaTime;
             yield return null;
         }
 
