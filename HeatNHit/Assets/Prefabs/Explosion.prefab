@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4054491467923483254}
   - component: {fileID: 4054491467923483255}
   - component: {fileID: 2281758002091669498}
-  - component: {fileID: -7316383233974083982}
+  - component: {fileID: 5654699599724781520}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -4828,7 +4828,7 @@ MonoBehaviour:
   radius: 3
   damage: 10
   force: 700
---- !u!82 &-7316383233974083982
+--- !u!82 &5654699599724781520
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4847,7 +4847,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 2.82
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
