@@ -6,6 +6,9 @@ public class SpawnerManager : MonoBehaviour
 {
     public float SpawnTimer;
     private float timer;
+    private float angle;
+    private float angleDisplacement;
+
     
     // Start is called before the first frame update
     void Start()
