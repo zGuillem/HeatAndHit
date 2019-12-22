@@ -213,10 +213,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37b30acf9a5971946acbc1f2e2b84f52, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   Velocity: 0.2
-  Anim: {fileID: 637017412044739826}
+  Anim: {fileID: 0}
   LifePoints: 0
   EAQ: {fileID: 0}
   MaxLifePoints: 10
@@ -266,7 +266,7 @@ Animator:
   m_UpdateMode: 1
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
-  m_WarningMessage:
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -280,8 +280,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1a50db9e19511e4a99c54292fd68b84, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   rb: {fileID: 0}
   EnemyScript: {fileID: 0}
 --- !u!64 &3129465298231658314
@@ -305,11 +305,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7946926554845570500}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 7eaf734603b74f2478bc401362af0b72,
-        type: 3}
-      propertyPath: m_Name
-      value: calavera
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7eaf734603b74f2478bc401362af0b72,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -365,42 +360,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 7eaf734603b74f2478bc401362af0b72,
+        type: 3}
+      propertyPath: m_Name
+      value: calavera
+      objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: 7eaf734603b74f2478bc401362af0b72,
         type: 3}
       propertyPath: m_Controller
-      value:
+      value: 
       objectReference: {fileID: 9100000, guid: f03a37aefc297c248bea136b182bbae5, type: 2}
     - target: {fileID: -4861924686910468554, guid: 7eaf734603b74f2478bc401362af0b72,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
-      value:
+      value: 
       objectReference: {fileID: 2100000, guid: 07bb0ca35f2681441a6fad0faa868c2a, type: 2}
     - target: {fileID: 856365191234717131, guid: 7eaf734603b74f2478bc401362af0b72,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
-      value:
+      value: 
       objectReference: {fileID: 2100000, guid: 07bb0ca35f2681441a6fad0faa868c2a, type: 2}
     - target: {fileID: -157825318150610632, guid: 7eaf734603b74f2478bc401362af0b72,
         type: 3}
       propertyPath: m_Controller
-      value:
+      value: 
       objectReference: {fileID: 2100000, guid: 07bb0ca35f2681441a6fad0faa868c2a, type: 2}
     - target: {fileID: 5902419001559106108, guid: 7eaf734603b74f2478bc401362af0b72,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
-      value:
+      value: 
       objectReference: {fileID: 2100000, guid: 07bb0ca35f2681441a6fad0faa868c2a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7eaf734603b74f2478bc401362af0b72, type: 3}
 --- !u!4 &1075200340820942413 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 7eaf734603b74f2478bc401362af0b72,
-    type: 3}
-  m_PrefabInstance: {fileID: 5445227767326799191}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &6945081426573685559 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: 7eaf734603b74f2478bc401362af0b72,
     type: 3}
   m_PrefabInstance: {fileID: 5445227767326799191}
   m_PrefabAsset: {fileID: 0}

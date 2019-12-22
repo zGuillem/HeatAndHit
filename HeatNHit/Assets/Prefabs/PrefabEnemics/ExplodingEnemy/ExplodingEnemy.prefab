@@ -50,7 +50,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 2.97
+  DopplerLevel: 3.05
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -319,11 +319,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8532311296732423822}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 507ce1871382dd5419bd2c6b28cbce3a,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemicAranya
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 507ce1871382dd5419bd2c6b28cbce3a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -378,6 +373,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 507ce1871382dd5419bd2c6b28cbce3a,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemicAranya
       objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: 507ce1871382dd5419bd2c6b28cbce3a,
         type: 3}
