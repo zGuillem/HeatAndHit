@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerFeedback : MonoBehaviour
 {
     public Camera cam;
+    public GameObject weaponSwitcher;
 
     public float screenShakeForce = 0.2f;
     public float screenShakeTime = 0.2f;
@@ -23,7 +24,7 @@ public class PlayerFeedback : MonoBehaviour
 
     private playerAudio audioController;
 
-    private bool moving = false;
+    private float loopMovement = 0f;
 
     void Start()
     {
@@ -110,19 +111,15 @@ public class PlayerFeedback : MonoBehaviour
 
     public void playerMoving(bool value)
     {
-        if (value == moving)
-            return;
-
-        moving = value;
-
         if (value)
         {
-            //cam.transform.localPosition += new Vector3(0f, 0.5f * Mathf.Cos(Time.time), 0f);
-        }
-        else
-        {
-            //StopCoroutine();
-            //cam.transform.localPosition = new Vector3(0f, 0.9f, 0f); 
+            loopMovement += Time.deltaTime;
+
+            if (loopMovement > Mathf.PI * 2)
+                loopMovement = 0f;
+
+            weaponSwitcher.transform.localPosition = new Vector3(0.02f * Mathf.Cos(loopMovement * 10), 0.01f * Mathf.Cos(loopMovement * 20), 0f);
+            cam.transform.localPosition = new Vector3(0f + 0.05f * Mathf.Cos(loopMovement * 10), 0.9f + 0.02f * Mathf.Cos(loopMovement * 20), 0f + 0f);
         }
 
     }
