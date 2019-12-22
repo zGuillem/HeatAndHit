@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class SpawnerManager : MonoBehaviour
 {
-
-    
-
     public float SpawnTimer;
     private float timer;
-    private float counter = 0f;
     
     // Start is called before the first frame update
     void Start()
@@ -23,7 +19,7 @@ public class SpawnerManager : MonoBehaviour
         UpdateTimer();
         if (timer == 0)
         {
-            SpawnEnemy(counter);
+            SpawnEnemy();
             timer = SpawnTimer;
         }
     }
@@ -32,19 +28,18 @@ public class SpawnerManager : MonoBehaviour
     {
         if (timer > 0)
         {
-            timer = timer - Time.deltaTime;
+            timer -= Time.deltaTime;
         }
         else
         {
             timer = 0;
-            counter += 1;
         }
     }
-    public void SpawnEnemy(float EnemyNumber)
+    public void SpawnEnemy()
     {
         int SelectedSpawner = Random.Range(0, transform.childCount-1);
         print("SelectedSpawner: "+ SelectedSpawner);
         Transform spawner = transform.GetChild(SelectedSpawner);
-        spawner.GetComponent<SpawnEnemies>().SpawnEnemiesFunction(EnemyNumber);
+        spawner.GetComponent<SpawnEnemies>().SpawnEnemiesFunction();
     }
 }

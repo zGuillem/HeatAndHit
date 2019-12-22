@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 039a724b78ddf3a42913229275c776e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Velocity: 0
+  Velocity: 0.5
   Anim: {fileID: 8532311296732423829}
   LifePoints: 0
   EAQ: {fileID: 0}

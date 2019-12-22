@@ -207,7 +207,6 @@ public class Enemy : MonoBehaviour
 
     virtual public void AddKnockBack(float Power)
     {
-        print("AddKnockBack");
         Knockback = (transform.position - target.position).normalized * Power * KnockbackSensitivity;
     }
 

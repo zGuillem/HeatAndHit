@@ -82,12 +82,13 @@ public class FlyingEnemy : Enemy
 
     private void LevelHeight()
     {
-        transform.Translate( new Vector3(0, Altura - transform.position.y + Knockback.y, 0) * Velocity * Time.deltaTime, Space.World);
+        transform.Translate( new Vector3(0, Altura - transform.position.y + Knockback.y, 0) * Time.deltaTime, Space.World);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (collision.transform == target)
+        print("Collision: " + collision.gameObject + " , " + target);
+        if (collision.transform == target) 
         {
             DamageTarget();
         }

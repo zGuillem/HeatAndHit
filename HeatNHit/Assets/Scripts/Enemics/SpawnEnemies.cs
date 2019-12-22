@@ -7,18 +7,31 @@ public class SpawnEnemies : MonoBehaviour
 
     [Header("Spawn Controller")]
     public AnimationCurve SpawnCurve;
-    public float spawnTime;
     public float spawnRange;
+    public int ComptadorRondes; //Contador de les vegades que s'ha superat el nombre de rondes dintre el graf
+    public int xinCurve = 1; //Valor que representa la X en el graf
+
+    [Header("Valors orientatius, canviar no afectarà en res")]
+    public float MaxEnemies;    //Valor MAXIM d'enemics que spawnejen, només és orientatiu, tot es controla per la curva, canviar el valor no afectarà en res
+    public float MinEnemies;    //Valor MINIM d'enemics que spawnejen, només és orientatiu, tot es controla per la curva, canviar el valor no afectarà en res
+    public float MaxRondes;     //Quantitat de rondes controlades per l'spawn, només és orientatiu, tot es controla per la curva, canviar el valor no afectarà en res
+    
 
     [Header("Spawnable Enemies")]
     public Transform Enemy1;
     public Transform Enemy2;
     public Transform Enemy3;
+    public int nombreEnemics = 2;
+    public Transform[] Enemics = new Transform[2];
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnEnemiesFunction", spawnTime, spawnTime); //canviar aquesta funcio despres, que la invocacio sigui externa
+        Enemics = new Transform[2];
+        Enemics[0] = Enemy1;
+        Enemics[1] = Enemy2;
+        //Enemics[2] = Enemy3;
+        //InvokeRepeating("SpawnEnemiesFunction", spawnTime, spawnTime); //canviar aquesta funcio despres, que la invocacio sigui externa
         //SpawnEnemiesFunction(1);
     }
 
@@ -28,17 +41,26 @@ public class SpawnEnemies : MonoBehaviour
         
     }
 
-    public void SpawnEnemiesFunction(float number)
+    public void SpawnEnemiesFunction()
     {
-        float enemySpawnNumber = SpawnCurve.Evaluate(number/10)*3;
-
-        for(float i = 0; i <= enemySpawnNumber;  i++)
+        xinCurve++;
+        if (xinCurve > MaxRondes)
         {
+            ComptadorRondes++;
+            xinCurve = 1;
+        }
+
+        int enemySpawnNumber = (int)SpawnCurve.Evaluate(xinCurve) +ComptadorRondes;
+        print(enemySpawnNumber);
+        for (float i = 0; i <= enemySpawnNumber;  i++)
+        {
+            int enemic = Mathf.FloorToInt(Random.Range(0, 2));
+            print("Enemic " + enemic);
             Vector3 position = new Vector3(Random.Range(transform.position.x-spawnRange, transform.position.x + spawnRange),
-                                            6,
+                                            Enemics[enemic].position.y,
                                             Random.Range(transform.position.z - spawnRange, transform.position.z + spawnRange));
-            //Transform enemic = Random.Range(0, transform.childCount - 1);
-            Instantiate(Enemy1, position, transform.rotation, gameObject.transform);
+            
+            Instantiate(Enemics[enemic], position, transform.rotation, gameObject.transform);
         }
     }
 
