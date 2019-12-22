@@ -38,7 +38,7 @@ public class SpawnEnemies : MonoBehaviour
                                             6,
                                             Random.Range(transform.position.z - spawnRange, transform.position.z + spawnRange));
             //Transform enemic = Random.Range(0, transform.childCount - 1);
-            Instantiate(Enemies[1], position, transform.rotation, gameObject.transform);
+            Instantiate(Enemy1, position, transform.rotation, gameObject.transform);
         }
     }
 
