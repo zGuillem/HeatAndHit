@@ -2564,10 +2564,30 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: cd32fd1dad3950a46b0f900a568b3318, type: 2}
+    - target: {fileID: 6351042537259309600, guid: e946936e171a1c946851feba9f12c9da,
+        type: 3}
+      propertyPath: heatStep
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6351042537259309600, guid: e946936e171a1c946851feba9f12c9da,
+        type: 3}
+      propertyPath: heatDecreaseStep
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6351042537259309600, guid: e946936e171a1c946851feba9f12c9da,
+        type: 3}
+      propertyPath: brokenHeatDecreasedStep
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1635606444092579399, guid: e946936e171a1c946851feba9f12c9da,
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1260484084678606440, guid: e946936e171a1c946851feba9f12c9da,
+        type: 3}
+      propertyPath: m_Name
+      value: EscopetParticle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e946936e171a1c946851feba9f12c9da, type: 3}

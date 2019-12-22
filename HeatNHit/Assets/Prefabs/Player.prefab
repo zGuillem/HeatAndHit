@@ -455,7 +455,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635606444092579407}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 504f21100c2bcb146b84b2fa7583a3bf, type: 3}
   m_Name: 
@@ -1668,6 +1668,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 562093425266681678, guid: 8ca8ac09bb0821b42be341a026ff3e67,
+        type: 3}
+      propertyPath: m_Name
+      value: EscopetParticle
+      objectReference: {fileID: 0}
     - target: {fileID: 7215360102680569858, guid: 8ca8ac09bb0821b42be341a026ff3e67,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1857,7 +1862,17 @@ PrefabInstance:
     - target: {fileID: 5661509533541721410, guid: 1ea44962316e63e43b85066185717d05,
         type: 3}
       propertyPath: heatStep
-      value: 0.05
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661509533541721410, guid: 1ea44962316e63e43b85066185717d05,
+        type: 3}
+      propertyPath: heatDecreaseStep
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661509533541721410, guid: 1ea44962316e63e43b85066185717d05,
+        type: 3}
+      propertyPath: brokenHeatDecreasedStep
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5661509533541721410, guid: 1ea44962316e63e43b85066185717d05,
         type: 3}
