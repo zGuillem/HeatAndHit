@@ -46,8 +46,8 @@ public class FlyingEnemy : Enemy
 
     override public void OnAttackFinish()
     {
+        base.OnAttackFinish();
         gameObject.GetComponent<Rigidbody>().isKinematic = false;
-        Attacking = true;
     }
 
     override protected void Attack()

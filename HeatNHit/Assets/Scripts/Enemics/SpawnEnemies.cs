@@ -18,8 +18,8 @@ public class SpawnEnemies : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //InvokeRepeating("SpawnEnemiesFunction", spawnTime, spawnTime); //canviar aquesta funcio despres, que la invocacio sigui externa
-        SpawnEnemiesFunction(1);
+        InvokeRepeating("SpawnEnemiesFunction", spawnTime, spawnTime); //canviar aquesta funcio despres, que la invocacio sigui externa
+        //SpawnEnemiesFunction(1);
     }
 
     // Update is called once per frame
@@ -37,8 +37,8 @@ public class SpawnEnemies : MonoBehaviour
             Vector3 position = new Vector3(Random.Range(transform.position.x-spawnRange, transform.position.x + spawnRange),
                                             6,
                                             Random.Range(transform.position.z - spawnRange, transform.position.z + spawnRange));
-
-            Instantiate(Enemy1, position, transform.rotation, gameObject.transform);
+            //Transform enemic = Random.Range(0, transform.childCount - 1);
+            Instantiate(Enemies[1], position, transform.rotation, gameObject.transform);
         }
     }
 

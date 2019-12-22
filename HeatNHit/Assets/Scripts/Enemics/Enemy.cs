@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
     public float damage;
     public  float AttackRadius;                                                                 //AttackRange                           
     public  float TimeBetweenAttacks;
+    [SerializeField]
     protected bool Attacking = false;                                                            //Indica si el personatge ha atacat fa poc i 
                                                                                                 //s'ha d'esperar per poder tornar a atacar
     public float AttackTimer;                                                                   //Temps entre atacs
@@ -89,7 +90,6 @@ public class Enemy : MonoBehaviour
         else
         {
             AttackTimer = -1;
-            Attacking = false;
         }
     }
 
@@ -97,8 +97,8 @@ public class Enemy : MonoBehaviour
     virtual protected void MoveTowardsTarget()
     {
         Vector3 move = GetMoveVector();
-        FaceTarget(move);
 
+        /*
         if (IsInAttackRange())
         {
             if (CanAttack())
@@ -109,8 +109,28 @@ public class Enemy : MonoBehaviour
         }
         else
         {
+            FaceTarget(move);
             transform.Translate(move, Space.World);
         }
+        */
+        if (!Attacking)
+        {
+            FaceTarget(move);
+            if (IsInAttackRange())
+            {
+                if (CanAttack())
+                {
+                    AskPermisionForAttack();
+                    //Attack();
+                }
+            }
+            else
+            {
+                transform.Translate(move, Space.World);
+            }
+        }
+        
+
     }
 
     //Aconsegueix el vector direcció cap a l'objectiu
@@ -131,9 +151,7 @@ public class Enemy : MonoBehaviour
     //Comprova si pot atacar
     virtual  protected bool CanAttack()
     {
-        bool a = !Attacking;
-        bool b = AttackTimer == -1;
-        return (!Attacking && (AttackTimer == -1));
+        return (AttackTimer == -1);
     }
 
     //Fa l'atac
@@ -148,6 +166,7 @@ public class Enemy : MonoBehaviour
     //Si es treu l'animació s'ha de treure aquesta funció
     virtual public void OnAttackFinish()
     {
+        Attacking = false;
         //transform.Translate(new Vector3(20, 20, 20), Space.World); 
     }
 
@@ -171,12 +190,12 @@ public class Enemy : MonoBehaviour
     //Permet al 
     virtual public void GrantPermisionForAttack()
     {
+        Attacking = true;
         Attack();
     }
 
     virtual public void AskPermisionForAttack()
     {
-        Attacking = true;
         EAQ.AddEnemyToQueue(this);
     }
 

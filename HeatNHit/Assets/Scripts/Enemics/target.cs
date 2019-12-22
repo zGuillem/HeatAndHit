@@ -20,6 +20,11 @@ public class target : MonoBehaviour
             EnemyScript.TakeDamage(damage);
             EnemyScript.AddKnockBack(impactForce);
         }
+        else
+        {
+            Vector3 forca = -normal * impactForce;
+            rb.AddForce(forca, ForceMode.Impulse);
+        }
         
     }
 
