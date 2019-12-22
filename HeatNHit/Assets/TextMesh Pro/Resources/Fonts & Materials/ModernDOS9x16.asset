@@ -53,9 +53,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: ModernDOS9x16
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: -801576447
   material: {fileID: -382564655687352561}
-  materialHashCode: 0
+  materialHashCode: -1291393046
   m_Version: 1.1.0
   m_SourceFontFileGUID: 771647d94a5a8224a804c52daa56f8ee
   m_SourceFontFile_EditorRef: {fileID: 0}
