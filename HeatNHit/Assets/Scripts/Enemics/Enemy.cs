@@ -124,8 +124,7 @@ public class Enemy : MonoBehaviour
             {
                 if (CanAttack())
                 {
-                    AskPermisionForAttack();
-                    //Attack();
+                    AttackMode();
                 }
             }
             else
@@ -133,8 +132,13 @@ public class Enemy : MonoBehaviour
                 transform.Translate(move, Space.World);
             }
         }
-        
+    }
 
+    virtual protected void AttackMode()
+    {
+
+        AskPermisionForAttack();
+        //Attack();
     }
 
     //Aconsegueix el vector direcció cap a l'objectiu

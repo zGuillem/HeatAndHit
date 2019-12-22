@@ -23,6 +23,10 @@ public class ExplodingEnemy : Enemy
         
     }
 
+    protected override void AttackMode()
+    {
+        Attack();
+    }
     public void Explode()
     {
         Instantiate(explosion, transform.position, transform.rotation, transform.parent);
