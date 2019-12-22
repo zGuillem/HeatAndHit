@@ -75,7 +75,6 @@ public class PlayerFeedback : MonoBehaviour
                 Time.timeScale = 0;
             yield return null;
         }
-        Time.timeScale = 1;
     }
 
     private IEnumerator blink(float endTime, float changePhaseTime)

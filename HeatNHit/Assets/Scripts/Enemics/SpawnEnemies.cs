@@ -53,7 +53,12 @@ public class SpawnEnemies : MonoBehaviour
         int enemySpawnNumber = (int)SpawnCurve.Evaluate(xinCurve) +ComptadorRondes;
         for (float i = 0; i <= enemySpawnNumber;  i++)
         {
-            int enemic = Mathf.FloorToInt(Random.Range(0, 2));
+            int enemic = Mathf.FloorToInt(Random.Range(0, 4));
+
+            //FER QUE SURTIN MÉS TERRESTRES I MENYS VOLADORS
+            enemic = Mathf.Clamp(enemic, 0, 1);
+
+
             Vector3 position = new Vector3(Random.Range(transform.position.x-spawnRange, transform.position.x + spawnRange),
                                             Enemics[enemic].position.y,
                                             Random.Range(transform.position.z - spawnRange, transform.position.z + spawnRange));

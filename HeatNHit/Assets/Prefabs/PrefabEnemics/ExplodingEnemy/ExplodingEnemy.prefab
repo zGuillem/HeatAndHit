@@ -283,7 +283,7 @@ MonoBehaviour:
   Anim: {fileID: 8532311296732423829}
   LifePoints: 0
   EAQ: {fileID: 0}
-  MaxLifePoints: 10
+  MaxLifePoints: 6
   score: 30
   dead: 0
   damage: 10
@@ -319,6 +319,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8532311296732423822}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 507ce1871382dd5419bd2c6b28cbce3a,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemicAranya
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 507ce1871382dd5419bd2c6b28cbce3a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -373,11 +378,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 507ce1871382dd5419bd2c6b28cbce3a,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemicAranya
       objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: 507ce1871382dd5419bd2c6b28cbce3a,
         type: 3}

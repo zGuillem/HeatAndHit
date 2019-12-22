@@ -6,13 +6,17 @@ using UnityEngine;
 public class PauseMenuController : MonoBehaviour
 {
     public Camera cam;
+    public GameObject player;
     public Slider pixelEffectSlider;
 
     private bool inPauseMenu = false;
     private float preTimeScale = 1;
+    private PlayerHealth accesKilled;
     // Start is called before the first frame update
     void Start()
     {
+        accesKilled = player.GetComponent<PlayerHealth>();
+        Debug.Log(accesKilled != null);
         hide();
     }
 
@@ -63,7 +67,8 @@ public class PauseMenuController : MonoBehaviour
 
         CamLook comprovant = cam.GetComponent<CamLook>();
         Debug.Assert(comprovant != null);
-        comprovant.FixarCursor();
+        if(!accesKilled.killed)
+            comprovant.FixarCursor();
     }
 
     public void onChangeSlider()
