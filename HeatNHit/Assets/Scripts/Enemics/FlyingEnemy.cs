@@ -87,7 +87,6 @@ public class FlyingEnemy : Enemy
 
     private void OnTriggerEnter(Collider collision)
     {
-        print("Collision: " + collision.gameObject + " , " + target);
         if (collision.transform == target) 
         {
             DamageTarget();
