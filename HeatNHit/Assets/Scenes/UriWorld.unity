@@ -2564,30 +2564,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: cd32fd1dad3950a46b0f900a568b3318, type: 2}
-    - target: {fileID: 1635606444574120418, guid: e946936e171a1c946851feba9f12c9da,
-        type: 3}
-      propertyPath: heatStep
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5096651256305405751, guid: e946936e171a1c946851feba9f12c9da,
+    - target: {fileID: 1635606444092579399, guid: e946936e171a1c946851feba9f12c9da,
         type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7998788947140598245, guid: e946936e171a1c946851feba9f12c9da,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: dab9b736a87155c47a524ab294ade1ed, type: 3}
-    - target: {fileID: 1954577410791533020, guid: e946936e171a1c946851feba9f12c9da,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 4d0b07fd05741e141ba36fe1857eb8d3, type: 3}
-    - target: {fileID: 8729610037853537175, guid: e946936e171a1c946851feba9f12c9da,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 8096fa860a66ab44d8aa06001e7f0693, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e946936e171a1c946851feba9f12c9da, type: 3}

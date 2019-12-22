@@ -113,6 +113,17 @@ public class PlayerFeedback : MonoBehaviour
         if (value == moving)
             return;
 
+        moving = value;
+
+        if (value)
+        {
+            //cam.transform.localPosition += new Vector3(0f, 0.5f * Mathf.Cos(Time.time), 0f);
+        }
+        else
+        {
+            //StopCoroutine();
+            //cam.transform.localPosition = new Vector3(0f, 0.9f, 0f); 
+        }
 
     }
 }
