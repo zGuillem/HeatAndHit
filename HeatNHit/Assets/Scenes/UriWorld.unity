@@ -1991,6 +1991,12 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1752713028 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1635606445090402454, guid: e946936e171a1c946851feba9f12c9da,
+    type: 3}
+  m_PrefabInstance: {fileID: 1635606444801329866}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1761742525
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2549,6 +2555,11 @@ PrefabInstance:
       propertyPath: DeathHud
       value: 
       objectReference: {fileID: 1336875993}
+    - target: {fileID: 1635606444455362386, guid: e946936e171a1c946851feba9f12c9da,
+        type: 3}
+      propertyPath: weaponSwitcher
+      value: 
+      objectReference: {fileID: 1752713028}
     - target: {fileID: 1635606444455362384, guid: e946936e171a1c946851feba9f12c9da,
         type: 3}
       propertyPath: scoreText
