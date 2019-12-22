@@ -614,7 +614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1635606444092579394}
-  weaponSwitcher: {fileID: 0}
+  weaponSwitcher: {fileID: 1635606445090402454}
   screenShakeForce: 0.2
   screenShakeTime: 0.2
   weaponsList:
@@ -624,6 +624,7 @@ MonoBehaviour:
   numOfBlinks: 6
   scoreController: {fileID: 1635606444455362384}
   DeathHud: {fileID: 0}
+  mirilla: {fileID: 0}
 --- !u!114 &1635606444455362387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1505,6 +1506,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 746347481677605677, guid: 8ca8ac09bb0821b42be341a026ff3e67,
         type: 3}
+      propertyPath: ShapeModule.type
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 746347481677605677, guid: 8ca8ac09bb0821b42be341a026ff3e67,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 746347481677605677, guid: 8ca8ac09bb0821b42be341a026ff3e67,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 746347481677605677, guid: 8ca8ac09bb0821b42be341a026ff3e67,
+        type: 3}
+      propertyPath: ShapeModule.m_Sprite
+      value: 
+      objectReference: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 746347481677605677, guid: 8ca8ac09bb0821b42be341a026ff3e67,
+        type: 3}
       propertyPath: ShapeModule.radius.value
       value: 0.1
       objectReference: {fileID: 0}
@@ -1669,46 +1690,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5566455893614201733, guid: b12ea9656022cfd40ae51a1df207959c,
         type: 3}
-    - target: {fileID: 746347481677605677, guid: 8ca8ac09bb0821b42be341a026ff3e67,
-        type: 3}
-      propertyPath: ShapeModule.type
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 746347481677605677, guid: 8ca8ac09bb0821b42be341a026ff3e67,
-        type: 3}
-      propertyPath: ShapeModule.placementMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 746347481677605677, guid: 8ca8ac09bb0821b42be341a026ff3e67,
-        type: 3}
-      propertyPath: ShapeModule.m_Sprite
-      value: 
-      objectReference: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 746347481677605677, guid: 8ca8ac09bb0821b42be341a026ff3e67,
-        type: 3}
-      propertyPath: ShapeModule.m_Scale.x
-      value: 0.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 746347481677605677, guid: 8ca8ac09bb0821b42be341a026ff3e67,
-        type: 3}
-      propertyPath: ShapeModule.m_Scale.y
-      value: 0.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 746347481677605677, guid: 8ca8ac09bb0821b42be341a026ff3e67,
-        type: 3}
-      propertyPath: ShapeModule.m_Scale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 746347481677605677, guid: 8ca8ac09bb0821b42be341a026ff3e67,
-        type: 3}
-      propertyPath: ShapeModule.alignToDirection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 746347481677605677, guid: 8ca8ac09bb0821b42be341a026ff3e67,
-        type: 3}
-      propertyPath: ShapeModule.radiusThickness
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1735971992911836301, guid: 8ca8ac09bb0821b42be341a026ff3e67,
         type: 3}
       propertyPath: m_IsActive
