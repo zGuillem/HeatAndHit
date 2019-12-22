@@ -51,6 +51,7 @@ public class PlayerFeedback : MonoBehaviour
 
     public void killed()
     {
+        audioController.playDying();
         deathEffect.killStart();
         StartCoroutine(timeSlow());
         scoreController.animationToCenter();

@@ -46,6 +46,8 @@ public class gunScript : MonoBehaviour
     public float screenShakeTime;                                           //Screen shake time after shooting
     public weaponAudio audioPlayer;
     public Animator animationPlayer;
+    public Mesh functionalMesh;
+    public Mesh brokenMesh;
 
 
     //Heat treatment
@@ -62,6 +64,8 @@ public class gunScript : MonoBehaviour
     //State controller
     private delegate void StatePlayer();                                    //Variable que guardara quin estat de l'arma executar.
     StatePlayer stateUpdate;
+
+    private MeshFilter meshAcces;
 
     private delegate void ShootingMethod(float damage);  //Variable que guardara quina manera d'atacar té l'arma.
     ShootingMethod shootingMethod;
@@ -100,7 +104,10 @@ public class gunScript : MonoBehaviour
                 break;
         }
 
-        setArmaMesh(activada); 
+        setArmaMesh(activada);
+
+        meshAcces = GetComponent<MeshFilter>();
+        Debug.Assert(meshAcces != null);
     }
 
     // Update is called once per frame
@@ -243,11 +250,13 @@ public class gunScript : MonoBehaviour
         if (heat == 1 && stateUpdate != BrokenStateUpdate)
         {
             stateUpdate = BrokenStateUpdate;
+            meshAcces.mesh = brokenMesh;
             audioPlayer.playBurnOut();
         }
         else if (heat == 0 && stateUpdate != FunctionalStateUpdate)
         {
             stateUpdate = FunctionalStateUpdate;
+            meshAcces.mesh = functionalMesh;
             audioPlayer.plaplayColdOut();
         }
             
