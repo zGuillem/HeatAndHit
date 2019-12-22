@@ -27,6 +27,6 @@ public class ExplodingEnemy : Enemy
     {
         Instantiate(explosion, transform.position, transform.rotation, transform.parent);
         explosion.AddDamage(damage);
-        Die();
+        Destroy(gameObject);
     }
 }

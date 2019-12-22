@@ -180,10 +180,13 @@ public class Enemy : MonoBehaviour
     //Controla el rebre mal de l'enemic
     virtual public void TakeDamage(float damage)
     {
-        LifePoints -= damage;
-        if (LifePoints <= 0)
+        if (LifePoints > 0)
         {
-            Die();
+            LifePoints -= damage;
+            if (LifePoints <= 0)
+            {
+                Die();
+            }
         }
     }
 
