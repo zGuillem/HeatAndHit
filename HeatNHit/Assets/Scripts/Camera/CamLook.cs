@@ -22,7 +22,7 @@ public class CamLook : MonoBehaviour
         limitEix_X = 0.0f;
     }
 
-    private void FixarCursor() //Es cridarà sempre que es vulgui fixar el cursor al centre de la pantalla.
+    public void FixarCursor() //Es cridarà sempre que es vulgui fixar el cursor al centre de la pantalla.
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
