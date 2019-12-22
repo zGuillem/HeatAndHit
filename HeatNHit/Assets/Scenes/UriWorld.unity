@@ -279,7 +279,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c9e6294c9d11cb8d11006bf944295342, type: 2}
+      objectReference: {fileID: 2100000, guid: cb7edcbd5f1c7a244bbd7790e313089e, type: 2}
     - target: {fileID: -1504981713932161579, guid: 60d0370de1482db439c7642fdf1f5139,
         type: 3}
       propertyPath: m_CastShadows
@@ -1682,6 +1682,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975099209209767596, guid: 2b4f7acc9dff09f4fa5bdc321af9b378,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 490
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b4f7acc9dff09f4fa5bdc321af9b378, type: 3}
