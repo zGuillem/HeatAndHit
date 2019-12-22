@@ -755,7 +755,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b788fc3cb1b441144be0d85aeca1ac6e, type: 2}
+  - {fileID: 2100000, guid: 441bda532ca264c41b3d6e359ea0c7ff, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -793,7 +793,7 @@ MonoBehaviour:
   activada: 0
   damageMin: 5
   damageMax: 20
-  range: 2
+  range: 3
   fireRate: 4
   impactForce: 10
   numberOfBullets: 1
@@ -1690,6 +1690,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5566455893614201733, guid: b12ea9656022cfd40ae51a1df207959c,
         type: 3}
+    - target: {fileID: 746347481677605677, guid: 8ca8ac09bb0821b42be341a026ff3e67,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1735971992911836301, guid: 8ca8ac09bb0821b42be341a026ff3e67,
         type: 3}
       propertyPath: m_IsActive
