@@ -580,6 +580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 1635606444455362398}
+  feedback: {fileID: 1635606444455362386}
   PlayerSpeed: 10
   JumpSpeed: 12
   gravity: -30
@@ -734,7 +735,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635606444574120428}
-  m_Mesh: {fileID: -3758573805739257388, guid: 607721ed8be9f1a468054c68d689e44a, type: 3}
+  m_Mesh: {fileID: 6247367344771301746, guid: a605411cd907d6748927ae947f41e10f, type: 3}
 --- !u!23 &1635606444574120416
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -804,9 +805,9 @@ MonoBehaviour:
   screenShakeTime: 0.15
   audioPlayer: {fileID: 5989292016335078873}
   animationPlayer: {fileID: 1635606444574120419}
-  functionalMesh: {fileID: -3758573805739257388, guid: 607721ed8be9f1a468054c68d689e44a,
+  functionalMesh: {fileID: 6247367344771301746, guid: a605411cd907d6748927ae947f41e10f,
     type: 3}
-  brokenMesh: {fileID: -3758573805739257388, guid: 607721ed8be9f1a468054c68d689e44a,
+  brokenMesh: {fileID: 6247367344771301746, guid: a605411cd907d6748927ae947f41e10f,
     type: 3}
   heatStep: 0.3
   heatDecreaseStep: 0.1
@@ -847,7 +848,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635606444574120428}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 607721ed8be9f1a468054c68d689e44a, type: 3}
+  m_Avatar: {fileID: 9000000, guid: a605411cd907d6748927ae947f41e10f, type: 3}
   m_Controller: {fileID: 9100000, guid: e965218108e50d84d88b31d7fa89523e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -1853,6 +1854,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -1388485733357891733, guid: 7690828ed71dca04995c1ca26d9240b5,
         type: 3}
+    - target: {fileID: 5661509533541721410, guid: 1ea44962316e63e43b85066185717d05,
+        type: 3}
+      propertyPath: heatStep
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 5661509533541721410, guid: 1ea44962316e63e43b85066185717d05,
         type: 3}
       propertyPath: cold

@@ -41,7 +41,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Emision: {r: 1, g: 1, b: 1, a: 1}
-    - _Emission: {r: 2.3731875, g: 0.45029715, b: 0.03651058, a: 1}
+    - _Emission: {r: 1, g: 0.33537933, b: 0.035294116, a: 1}
     - _MainTex_ST: {r: 1, g: 1, b: 0, a: 0}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
