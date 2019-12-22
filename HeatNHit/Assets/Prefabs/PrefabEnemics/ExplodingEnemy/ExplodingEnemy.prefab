@@ -157,12 +157,14 @@ MonoBehaviour:
   EAQ: {fileID: 0}
   MaxLifePoints: 10
   score: 30
+  dead: 0
   damage: 10
   AttackRadius: 3
   TimeBetweenAttacks: 0
   Attacking: 0
   AttackTimer: 0
-  deathParticles: {fileID: 0}
+  deathParticles: {fileID: 5746201505826430116, guid: fa25e721d46bc4c488c48fa3be42ea84,
+    type: 3}
   Knockback: {x: 0, y: 0, z: 0}
   KnockbackGrowth: 0.2
   KnockbackSensitivity: 0.2

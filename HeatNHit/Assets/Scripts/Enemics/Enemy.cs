@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
     protected Transform target;                                                                 //Objectiu
 
     [Header("Particles")]
-    public ParticleSystem deathParticles;
+    public GameObject deathParticles;
 
     [Header("Knockback properties")]
     [SerializeField]
@@ -102,22 +102,7 @@ public class Enemy : MonoBehaviour
     {
         Vector3 move = GetMoveVector();
 
-        /*
-        if (IsInAttackRange())
-        {
-            if (CanAttack())
-            {
-                AskPermisionForAttack();
-                //Attack();
-            }
-        }
-        else
-        {
-            FaceTarget(move);
-            transform.Translate(move, Space.World);
-        }
-        */
-        if (!Attacking)
+        if (!Attacking || dead)
         {
             FaceTarget(move);
             if (IsInAttackRange())
@@ -192,6 +177,7 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
         target.GetComponent<PlayerScore>().ScorePlus(score);
+        Instantiate(deathParticles, transform.position, transform.rotation, transform.parent);
     }
 
     //Controla el rebre mal de l'enemic
