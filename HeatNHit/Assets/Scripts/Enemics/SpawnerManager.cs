@@ -6,8 +6,7 @@ public class SpawnerManager : MonoBehaviour
 {
     public float SpawnTimer;
     private float timer;
-    private float angle;
-    private float angleDisplacement;
+    private float angleDisplacement = 30;
 
     
     // Start is called before the first frame update
@@ -24,6 +23,8 @@ public class SpawnerManager : MonoBehaviour
         {
             SpawnEnemy();
             timer = SpawnTimer;
+            //transform.rotation = Quaternion.AngleAxis(angleDisplacement, Vector3.up);
+            transform.Rotate(0.0f, angleDisplacement, 0.0f, Space.World);
         }
     }
 
@@ -41,7 +42,6 @@ public class SpawnerManager : MonoBehaviour
     public void SpawnEnemy()
     {
         int SelectedSpawner = Random.Range(0, transform.childCount-1);
-        print("SelectedSpawner: "+ SelectedSpawner);
         Transform spawner = transform.GetChild(SelectedSpawner);
         spawner.GetComponent<SpawnEnemies>().SpawnEnemiesFunction();
     }
