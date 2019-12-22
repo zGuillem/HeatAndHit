@@ -17,6 +17,7 @@ public class PlayerFeedback : MonoBehaviour
     public PlayerScore scoreController;
 
     public GameObject DeathHud;
+    public GameObject mirilla;
 
     private CameraShaker shaker;
     private DeathEffectShader deathEffect;
@@ -54,6 +55,7 @@ public class PlayerFeedback : MonoBehaviour
 
     public void killed()
     {
+        mirilla.SetActive(false);
         audioController.playDying();
         deathEffect.killStart();
         StartCoroutine(timeSlow());
