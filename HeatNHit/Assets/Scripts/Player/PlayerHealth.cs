@@ -16,13 +16,14 @@ public class PlayerHealth : MonoBehaviour
 
     private float nextInmuneTime = 0;
 
-    private float currentHealth = 100;
+    private float currentHealth;
 
     public bool killed = false;
 
     
     void Start()
     {
+        currentHealth = maxHealth;
         obtingut = aux.GetComponent<Image>();
         updateScreen();
     }
