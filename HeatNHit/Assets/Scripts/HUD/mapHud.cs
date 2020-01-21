@@ -31,9 +31,5 @@ public class mapHud : MonoBehaviour
         //Actualitzar posicio del jugador respecte el mapa
         Vector3 posEnElMapa = new Vector3(playerTransform.localPosition.x, playerTransform.localPosition.z, playerTransform.localPosition.y);
         playerPosition.transform.localPosition = posEnElMapa;
-
-
-
-
     }
 }
