@@ -40,7 +40,6 @@ public class EnemyAttackQueue : MonoBehaviour
 
     public void UnqueueEnemy()
     {
-        print("LetEenymAttack");
         if (Queue.Peek() != null)
         {
             Queue.Peek().GrantPermisionForAttack();

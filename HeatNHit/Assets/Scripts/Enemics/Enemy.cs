@@ -18,19 +18,20 @@ public class Enemy : MonoBehaviour
     protected EnemyAttackQueue EAQ;                                                             //Sistema de control de cua
     public float MaxLifePoints;                                                                 //Punts de vida màxims de l'enemic
     public int score;
+    public bool dead;
 
     [Header("Attack properties")]
     public float damage;
     public  float AttackRadius;                                                                 //AttackRange                           
     public  float TimeBetweenAttacks;
+    [SerializeField]
     protected bool Attacking = false;                                                            //Indica si el personatge ha atacat fa poc i 
                                                                                                 //s'ha d'esperar per poder tornar a atacar
     public float AttackTimer;                                                                   //Temps entre atacs
-
-    
-    
     protected Transform target;                                                                 //Objectiu
 
+    [Header("Particles")]
+    public GameObject deathParticles;
 
     [Header("Knockback properties")]
     [SerializeField]
@@ -58,9 +59,13 @@ public class Enemy : MonoBehaviour
     virtual protected void Update()
     {
         //Anim.ResetTrigger("InAttackRange");
-        MoveTowardsTarget();
-        UpdateAttackTimer();
-        UpdateKnockback();
+        if (!dead)
+        {
+            MoveTowardsTarget();
+            UpdateAttackTimer();
+            UpdateKnockback();
+        }
+
     }
 
     //Girem l'enemic en la direcció del jugador
@@ -89,7 +94,6 @@ public class Enemy : MonoBehaviour
         else
         {
             AttackTimer = -1;
-            Attacking = false;
         }
     }
 
@@ -97,20 +101,29 @@ public class Enemy : MonoBehaviour
     virtual protected void MoveTowardsTarget()
     {
         Vector3 move = GetMoveVector();
-        FaceTarget(move);
 
-        if (IsInAttackRange())
+        if (!Attacking || dead)
         {
-            if (CanAttack())
+            FaceTarget(move);
+            if (IsInAttackRange())
             {
-                AskPermisionForAttack();
-                //Attack();
+                if (CanAttack())
+                {
+                    AttackMode();
+                }
+            }
+            else
+            {
+                transform.Translate(move, Space.World);
             }
         }
-        else
-        {
-            transform.Translate(move, Space.World);
-        }
+    }
+
+    virtual protected void AttackMode()
+    {
+
+        AskPermisionForAttack();
+        //Attack();
     }
 
     //Aconsegueix el vector direcció cap a l'objectiu
@@ -131,9 +144,7 @@ public class Enemy : MonoBehaviour
     //Comprova si pot atacar
     virtual  protected bool CanAttack()
     {
-        bool a = !Attacking;
-        bool b = AttackTimer == -1;
-        return (!Attacking && (AttackTimer == -1));
+        return (AttackTimer == -1);
     }
 
     //Fa l'atac
@@ -148,41 +159,54 @@ public class Enemy : MonoBehaviour
     //Si es treu l'animació s'ha de treure aquesta funció
     virtual public void OnAttackFinish()
     {
+        Attacking = false;
         //transform.Translate(new Vector3(20, 20, 20), Space.World); 
     }
 
     //Controla la mort de l'enemic
     virtual protected void Die()
     {
+        Rigidbody rb = transform.GetComponent<Rigidbody>();
+        rb.isKinematic = false;
+        rb.useGravity = true;
+        dead = true;
+        Anim.SetTrigger("Death");
+    }
+
+    virtual protected void Death()
+    {
         Destroy(gameObject);
         target.GetComponent<PlayerScore>().ScorePlus(score);
+        Instantiate(deathParticles, transform.position, transform.rotation, transform.parent);
     }
 
     //Controla el rebre mal de l'enemic
     virtual public void TakeDamage(float damage)
     {
-        LifePoints -= damage;
-        if (LifePoints <= 0)
+        if (LifePoints > 0)
         {
-            Die();
+            LifePoints -= damage;
+            if (LifePoints <= 0)
+            {
+                Die();
+            }
         }
     }
 
     //Permet al 
     virtual public void GrantPermisionForAttack()
     {
+        Attacking = true;
         Attack();
     }
 
     virtual public void AskPermisionForAttack()
     {
-        Attacking = true;
         EAQ.AddEnemyToQueue(this);
     }
 
     virtual public void AddKnockBack(float Power)
     {
-        print("AddKnockBack");
         Knockback = (transform.position - target.position).normalized * Power * KnockbackSensitivity;
     }
 

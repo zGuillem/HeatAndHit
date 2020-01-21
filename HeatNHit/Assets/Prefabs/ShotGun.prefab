@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5766901333063276062}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0.69600004, y: 0.124000005, z: -0.56}
 --- !u!198 &746347481677605677
 ParticleSystem:
@@ -4840,7 +4840,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5766901333063276062}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &8028466109658561311
 Light:
@@ -4933,8 +4933,8 @@ Transform:
   m_LocalPosition: {x: 0.64, y: -0.46, z: 0.7}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children:
-  - {fileID: 1632739616449575726}
   - {fileID: 5592685901925075564}
+  - {fileID: 1632739616449575726}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -6.6410003, y: -7.01, z: 0.57600003}
@@ -5026,6 +5026,10 @@ MonoBehaviour:
   recoil: 2
   screenShakeForce: 0.2
   screenShakeTime: 0.15
+  audioPlayer: {fileID: 0}
+  animationPlayer: {fileID: 0}
+  functionalMesh: {fileID: 0}
+  brokenMesh: {fileID: 0}
   heatStep: 0.1
   heatDecreaseStep: 0.2
   brokenHeatDecreasedStep: 0.1

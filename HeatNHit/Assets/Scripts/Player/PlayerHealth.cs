@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
 
     private float currentHealth = 100;
 
-    private bool killed = false;
+    public bool killed = false;
 
     
     void Start()
@@ -39,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void takeDamage(float value)
     {
-        if (Time.time > nextInmuneTime)
+        if (Time.time > nextInmuneTime && !killed)
         {
             nextInmuneTime = Time.time + inmuneTime;
             updateHealth(-value);

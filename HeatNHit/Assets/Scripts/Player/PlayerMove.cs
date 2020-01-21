@@ -7,6 +7,7 @@ public class PlayerMove : MonoBehaviour
 
     //VARIABLES -----------------------------------------------------------------------------------------------------------
     public CharacterController characterController;
+    public PlayerFeedback feedback;
 
 
     //MOVIMENT ----------------------------
@@ -77,9 +78,10 @@ public class PlayerMove : MonoBehaviour
             move.Normalize();
 
         float usedSpeed = m_Grounded ? PlayerSpeed : m_SpeedAtJump;
-        //                condition  ? consequent  : alternative
+        //                condition  ? consequent  : alternative  ;
 
         move = move * usedSpeed * Time.deltaTime;
+        feedback.playerMoving(m_Grounded && move.magnitude > 0.1f);
 
         move = transform.TransformDirection(move);
         characterController.Move(move);

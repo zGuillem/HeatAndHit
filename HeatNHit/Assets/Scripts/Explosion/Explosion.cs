@@ -29,7 +29,6 @@ public class Explosion : MonoBehaviour
                 }
             }
         }
-        Destroy(gameObject);
     }
 
     public void AddDamage(float dam)

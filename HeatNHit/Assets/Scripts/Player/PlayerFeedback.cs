@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerFeedback : MonoBehaviour
 {
     public Camera cam;
+    public GameObject weaponSwitcher;
 
     public float screenShakeForce = 0.2f;
     public float screenShakeTime = 0.2f;
@@ -16,12 +17,15 @@ public class PlayerFeedback : MonoBehaviour
     public PlayerScore scoreController;
 
     public GameObject DeathHud;
+    public GameObject mirilla;
 
     private CameraShaker shaker;
     private DeathEffectShader deathEffect;
     private List<gunScript> gunScriptList = new List<gunScript>();
 
     private playerAudio audioController;
+
+    private float loopMovement = 0f;
 
     void Start()
     {
@@ -51,6 +55,8 @@ public class PlayerFeedback : MonoBehaviour
 
     public void killed()
     {
+        mirilla.SetActive(false);
+        audioController.playDying();
         deathEffect.killStart();
         StartCoroutine(timeSlow());
         scoreController.animationToCenter();
@@ -69,7 +75,6 @@ public class PlayerFeedback : MonoBehaviour
                 Time.timeScale = 0;
             yield return null;
         }
-        Time.timeScale = 1;
     }
 
     private IEnumerator blink(float endTime, float changePhaseTime)
@@ -103,5 +108,20 @@ public class PlayerFeedback : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void playerMoving(bool value)
+    {
+        if (value)
+        {
+            loopMovement += Time.deltaTime;
+
+            if (loopMovement > Mathf.PI * 2)
+                loopMovement = 0f;
+
+            weaponSwitcher.transform.localPosition = new Vector3(0.02f * Mathf.Cos(loopMovement * 10), 0.01f * Mathf.Cos(loopMovement * 20), 0f);
+            cam.transform.localPosition = new Vector3(0f + 0.05f * Mathf.Cos(loopMovement * 10), 0.9f + 0.02f * Mathf.Cos(loopMovement * 20), 0f + 0f);
+        }
+
     }
 }

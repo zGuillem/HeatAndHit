@@ -56,37 +56,54 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.36326253
-      value: 0.1624813
-      inSlope: 0.866092
-      outSlope: 0.866092
+      time: 4.7557373
+      value: 1.907795
+      inSlope: -0.32059193
+      outSlope: -0.32059193
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.51951295
+      inWeight: 0.59439313
+      outWeight: 0.39773536
     - serializedVersion: 3
-      time: 0.57873756
-      value: 0.27124882
-      inSlope: -0.7085565
-      outSlope: -0.7085565
+      time: 9.757302
+      value: 5.0124087
+      inSlope: -1.2778732
+      outSlope: -1.2778732
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.2682932
       outWeight: 0.3144071
     - serializedVersion: 3
-      time: 1
-      value: 0.4988327
-      inSlope: -0.03765747
-      outSlope: -0.03765747
+      time: 15.280964
+      value: 7.3198996
+      inSlope: -1.0315936
+      outSlope: -1.0315936
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.12712224
-      outWeight: 0
+      inWeight: 0.21807231
+      outWeight: 0.17558332
+    - serializedVersion: 3
+      time: 19.960539
+      value: 9.919483
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  spawnTime: 2
   spawnRange: 5
-  Enemy1: {fileID: 8532311296732423822, guid: dd91f478eb2dcff47a8d7aa80190f8c4, type: 3}
-  Enemy2: {fileID: 637017412044739824, guid: b0438a534ad71904784821e32cec1d9b, type: 3}
+  ComptadorRondes: 0
+  xinCurve: 1
+  MaxEnemies: 10
+  MinEnemies: 1
+  MaxRondes: 20
+  Enemy1: {fileID: 7946926554845570500, guid: b0438a534ad71904784821e32cec1d9b, type: 3}
+  Enemy2: {fileID: 8532311296732423822, guid: a83651e327696a941baf0292b246f4b7, type: 3}
   Enemy3: {fileID: 637017412044739824, guid: b0438a534ad71904784821e32cec1d9b, type: 3}
+  nombreEnemics: 2
+  Enemics:
+  - {fileID: 0}
+  - {fileID: 0}
