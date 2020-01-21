@@ -16,7 +16,6 @@ public class PauseMenuController : MonoBehaviour
     void Start()
     {
         accesKilled = player.GetComponent<PlayerHealth>();
-        Debug.Log(accesKilled != null);
         hide();
     }
 
