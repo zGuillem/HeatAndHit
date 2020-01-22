@@ -6,9 +6,9 @@ using UnityEngine.UI; // Required when Using UI elements.
 public class PlayerHealth : MonoBehaviour
 {
 
-    public GameObject aux;
-    private Image obtingut;
-    public float maxHealth = 100;
+    public GameObject vidaObject;
+    private lifeCounter vidaScript;
+    public float maxHealth = 5;
     public PlayerFeedback feedback;
     public PlayerDisable playerDisable;
 
@@ -24,7 +24,8 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        obtingut = aux.GetComponent<Image>();
+        vidaScript = vidaObject.GetComponent<lifeCounter>();
+        vidaScript.maxLife((int)maxHealth, (int)currentHealth);
         updateScreen();
     }
 
@@ -34,7 +35,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (Input.GetButtonDown("AutoDamage"))
         {
-            updateHealth(10);
+            updateHealth(-1);
         }
     }
 
@@ -69,7 +70,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void updateScreen()
     {
-        obtingut.fillAmount = mapLifeToValue();
+        vidaScript.actualLife((int)currentHealth);
     }
 
     private float mapLifeToValue()
