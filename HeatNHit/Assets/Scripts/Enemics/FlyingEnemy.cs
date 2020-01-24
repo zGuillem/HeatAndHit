@@ -24,12 +24,13 @@ public class FlyingEnemy : Enemy
     }
 
 
+
     override protected void MoveTowardsTarget()
     {
         base.MoveTowardsTarget();
         LevelHeight();
     }
-
+    
     //Es vol que l'enemic es mogui cap el jugador i que estigui sempre a la mateixa altura
     //Com és un rigidbody que no utilitza la gravetat, però sí les col·lisions necessitem recol·locar
     //L'enemic quan aquest es desplaci per l'impacte amb altres.
@@ -82,7 +83,9 @@ public class FlyingEnemy : Enemy
 
     private void LevelHeight()
     {
-        transform.Translate( new Vector3(0, Altura - transform.position.y + Knockback.y, 0) * Time.deltaTime, Space.World);
+        float alturaObjectiu = Altura + target.transform.position.y;
+        float alturaActual = transform.position.y;
+        transform.Translate( new Vector3(0, alturaObjectiu - alturaActual + Knockback.y, 0) * Time.deltaTime, Space.World);
     }
 
     private void OnTriggerEnter(Collider collision)

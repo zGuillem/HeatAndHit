@@ -293,11 +293,15 @@ MonoBehaviour:
   AttackTimer: 0
   deathParticles: {fileID: 5746201505826430116, guid: fa25e721d46bc4c488c48fa3be42ea84,
     type: 3}
+  bulletImpactParticles: {fileID: 5264302378817878463, guid: 7197d3be21c12a74cb4d204cecacb14e,
+    type: 3}
   Knockback: {x: 0, y: 0, z: 0}
   KnockbackGrowth: 0.2
   KnockbackSensitivity: 0.2
+  spawner: {fileID: 0}
   explosion: {fileID: 2281758002091669498, guid: a6cbeb78600850c43a8110ef6b542f2f,
     type: 3}
+  ForcaExplosio: 50
 --- !u!114 &2684954193473342314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,6 +323,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8532311296732423822}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 507ce1871382dd5419bd2c6b28cbce3a,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemicAranya
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 507ce1871382dd5419bd2c6b28cbce3a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -373,11 +382,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 507ce1871382dd5419bd2c6b28cbce3a,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemicAranya
       objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: 507ce1871382dd5419bd2c6b28cbce3a,
         type: 3}

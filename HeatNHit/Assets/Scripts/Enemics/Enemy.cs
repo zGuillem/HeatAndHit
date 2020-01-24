@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
 
     [Header("Particles")]
     public GameObject deathParticles;
+    public ParticleSystem bulletImpactParticles;
 
     [Header("Knockback properties")]
     [SerializeField]
@@ -40,6 +41,11 @@ public class Enemy : MonoBehaviour
     protected float KnockbackGrowth;                                                            //Rati amb el que disminueix el Knockback
     [SerializeField]
     protected float KnockbackSensitivity;                                                       //Multiplicador, indica la sensibilitat de l'enemic al knockback
+
+    [Header("Spawn Reference")]
+    [SerializeField]
+    private SpawnEnemies spawner;
+
     virtual protected void Start()
     {
         Constructor();
@@ -53,19 +59,39 @@ public class Enemy : MonoBehaviour
         LifePoints = MaxLifePoints;
         target = PlayerManager.instance.transform;
         AttackTimer = -1;
+        spawner = SpawnEnemies.instance;
     }
+    /*
+    private void setVectorMove(Vector3 newVector)
+    {
+        move = newVector;
+    }
+    
+    IEnumerator Movement()
+    {
+        Vector3 vec = GetMoveVector();
+        if (!Attacking || dead)
+        {
+            FaceTarget(vec);
+        }
+            print(vec);
+        setVectorMove(vec);
+        yield return new WaitForSeconds(3f);
+    }
+    */
 
     // Update is called once per frame
     virtual protected void Update()
     {
         //Anim.ResetTrigger("InAttackRange");
+        //StartCoroutine(Movement());
+        //*print(move);
         if (!dead)
         {
             MoveTowardsTarget();
             UpdateAttackTimer();
             UpdateKnockback();
         }
-
     }
 
     //Girem l'enemic en la direcció del jugador
@@ -101,7 +127,6 @@ public class Enemy : MonoBehaviour
     virtual protected void MoveTowardsTarget()
     {
         Vector3 move = GetMoveVector();
-
         if (!Attacking || dead)
         {
             FaceTarget(move);
@@ -160,6 +185,7 @@ public class Enemy : MonoBehaviour
     virtual public void OnAttackFinish()
     {
         Attacking = false;
+        Anim.ResetTrigger("InAttackRange");
         //transform.Translate(new Vector3(20, 20, 20), Space.World); 
     }
 
@@ -178,11 +204,13 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
         target.GetComponent<PlayerScore>().ScorePlus(score);
         Instantiate(deathParticles, transform.position, transform.rotation, transform.parent);
+        spawner.removeEnemy();
     }
 
     //Controla el rebre mal de l'enemic
-    virtual public void TakeDamage(float damage)
+    virtual public void TakeDamage(float damage, Vector3 ImpactPosition, Vector3 normal)
     {
+        Instantiate(bulletImpactParticles, ImpactPosition, Quaternion.LookRotation(normal));
         if (LifePoints > 0)
         {
             LifePoints -= damage;
@@ -218,6 +246,5 @@ public class Enemy : MonoBehaviour
     virtual protected void DamageTarget()
     {
         target.GetComponent<PlayerHealth>().takeDamage(damage);
-
     }
 }

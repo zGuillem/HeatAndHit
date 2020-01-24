@@ -5,6 +5,8 @@ using UnityEngine;
 public class ExplodingEnemy : Enemy
 {
     public Explosion explosion;
+    [Header("Control d'explosió")]
+    public float ForcaExplosio;
 
     protected override void Constructor()
     {
@@ -29,7 +31,9 @@ public class ExplodingEnemy : Enemy
     }
     public void Explode()
     {
-        Instantiate(explosion, transform.position, transform.rotation, transform.parent);
+        Vector3 posicioExplosio = new Vector3(transform.position.x, 0, transform.position.z);
+        Instantiate(explosion, posicioExplosio, transform.rotation, transform.parent);
+        //explosion.giveForce(ForcaExplosio);
         explosion.AddDamage(damage);
         Destroy(gameObject);
     }

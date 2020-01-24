@@ -12,17 +12,17 @@ public class target : MonoBehaviour
         rb = transform.GetComponent<Rigidbody>();
         EnemyScript = transform.GetComponent<Enemy>();
     }
+
     public void takeDamage(float damage, float impactForce, Vector3 point, Vector3 normal)
     {
 
         if (EnemyScript != null)
         {
-            EnemyScript.TakeDamage(damage);
+            EnemyScript.TakeDamage(damage, point + normal*0.1f, normal);
             EnemyScript.AddKnockBack(impactForce);
         }
         else
         {
-            print("hola");
             Vector3 forca = -normal * impactForce;
             rb.AddForce(forca, ForceMode.Impulse);
         }

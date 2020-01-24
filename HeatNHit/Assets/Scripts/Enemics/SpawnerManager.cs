@@ -7,6 +7,7 @@ public class SpawnerManager : MonoBehaviour
     public float SpawnTimer;
     private float timer;
     private float angleDisplacement = 30;
+    public float enemicsVius = 0;
 
     
     // Start is called before the first frame update
@@ -45,4 +46,5 @@ public class SpawnerManager : MonoBehaviour
         Transform spawner = transform.GetChild(SelectedSpawner);
         spawner.GetComponent<SpawnEnemies>().SpawnEnemiesFunction();
     }
+
 }

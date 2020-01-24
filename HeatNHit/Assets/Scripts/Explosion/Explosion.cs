@@ -35,4 +35,9 @@ public class Explosion : MonoBehaviour
     {
         damage = dam;
     }
+
+    public void giveForce(float Novaforca)
+    {
+        force = Novaforca;
+    }
 }
