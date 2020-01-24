@@ -24,11 +24,7 @@ public class deathHudController : MonoBehaviour
             child.gameObject.SetActive(true);
         }
 
-        gameData g = saveSystem.LoadData();
-        if (g != null && g.Highscore != -1)
-            highscoreText.text = "HighScore: " + g.Highscore;
-        else
-            highscoreText.text = "HighScore: 0";        
+        highscoreText.text = "HighScore: " + PlayerPrefs.GetInt("highscore", 0); 
     }
 
     public void playAgainButtonOnClicked()

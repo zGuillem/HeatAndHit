@@ -77,14 +77,23 @@ public class PauseMenuController : MonoBehaviour
         float newValue = pixelEffectSlider.value;
 
         if (newValue == pixelEffectSlider.maxValue)
+        {
+            newValue = -1;
             comprovant.enabled = false;
+            PlayerPrefs.SetFloat("PixelEffect", newValue);
+        }
         else
         {
             comprovant.enabled = true;
             comprovant.verticalPixels = newValue;
+            PlayerPrefs.SetFloat("PixelEffect", newValue);
         }
 
-        saveSystem.SaveData(new gameData(newValue));
+        PlayerPrefs.Save();
+
+        /*saveSystem.SaveData(new gameData(newValue));*/
+
+        
     }
 
     public void onResumeButton()

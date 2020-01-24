@@ -4,23 +4,23 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class saveSystem
 {
-    private static string path = "./Data.txt";
+    private static string path = Application.dataPath + "/gameData.txt";
     private static float PixelEffect = -1f;
     private static int Highscore = -1;
-
-    private static bool semafor = false;
 
     public static void SaveData(gameData data)
     {
         if (data.Highscore == -1)
-        {
             data.Highscore = Highscore;
-        }
+        else
+            Highscore = data.Highscore;
+
 
         if (data.PixelEffect == -1)
-        {
             data.PixelEffect = PixelEffect;
-        }
+        else
+            PixelEffect = data.PixelEffect;
+       
 
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream stream = new FileStream(path, FileMode.Create);
@@ -44,6 +44,8 @@ public static class saveSystem
                 Highscore = data.Highscore;
                 return data;
             }
+
+            stream.Close();
         }
         return null;
     }
