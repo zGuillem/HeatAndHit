@@ -5,20 +5,21 @@ using System.Runtime.Serialization.Formatters.Binary;
 public static class saveSystem
 {
     private static string path = "./Data.txt";
+    private static float PixelEffect = -1f;
+    private static int Highscore = -1;
+
+    private static bool semafor = false;
+
     public static void SaveData(gameData data)
     {
         if (data.Highscore == -1)
         {
-            gameData actual = LoadData();
-            if (actual != null)
-                data.Highscore = actual.Highscore;
+            data.Highscore = Highscore;
         }
 
         if (data.PixelEffect == -1)
         {
-            gameData actual = LoadData();
-            if (actual != null)
-                data.PixelEffect = actual.Highscore;
+            data.PixelEffect = PixelEffect;
         }
 
         BinaryFormatter formatter = new BinaryFormatter();
@@ -39,10 +40,11 @@ public static class saveSystem
             if (stream.Length != 0)
             {
                 data = formatter.Deserialize(stream) as gameData;
+                PixelEffect = data.PixelEffect;
+                Highscore = data.Highscore;
                 return data;
             }
         }
-
         return null;
     }
 
