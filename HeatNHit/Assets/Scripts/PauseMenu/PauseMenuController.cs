@@ -39,7 +39,8 @@ public class PauseMenuController : MonoBehaviour
         Time.timeScale = 0;
         AudioListener aux = cam.GetComponent<AudioListener>();
         Debug.Assert(aux != null);
-        aux.enabled = false;
+
+        AudioListener.pause = true;
 
 
         foreach (Transform child in this.gameObject.transform)
@@ -55,9 +56,7 @@ public class PauseMenuController : MonoBehaviour
     private void hide()
     {
         Time.timeScale = preTimeScale;
-        AudioListener aux = cam.GetComponent<AudioListener>();
-        Debug.Assert(aux != null);
-        aux.enabled = true;
+        AudioListener.pause = false;
 
         foreach (Transform child in this.gameObject.transform)
         {
@@ -84,6 +83,8 @@ public class PauseMenuController : MonoBehaviour
             comprovant.enabled = true;
             comprovant.verticalPixels = newValue;
         }
+
+        saveSystem.SaveData(new gameData(newValue));
     }
 
     public void onResumeButton()

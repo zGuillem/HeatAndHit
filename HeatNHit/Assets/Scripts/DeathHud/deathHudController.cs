@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class deathHudController : MonoBehaviour
 {
     // Start is called before the first frame update
-    
+    public Text highscoreText;
 
     void Start()
     {
@@ -22,6 +23,12 @@ public class deathHudController : MonoBehaviour
         {
             child.gameObject.SetActive(true);
         }
+
+        gameData g = saveSystem.LoadData();
+        if (g != null && g.Highscore != -1)
+            highscoreText.text = "HighScore: " + g.Highscore;
+        else
+            highscoreText.text = "HighScore: 0";        
     }
 
     public void playAgainButtonOnClicked()

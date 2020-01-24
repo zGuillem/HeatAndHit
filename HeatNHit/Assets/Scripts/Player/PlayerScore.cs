@@ -28,6 +28,7 @@ public class PlayerScore : MonoBehaviour
     public void animationToCenter()
     {
         StartCoroutine(movingToCenter());
+        saveSystem.SaveData(new gameData(score));
     }
 
     public IEnumerator movingToCenter()
@@ -37,7 +38,7 @@ public class PlayerScore : MonoBehaviour
         
         while((rectText.localPosition).magnitude > 4)
         {
-            rectText.localPosition = rectText.localPosition * 0.85f;// += (-rectText.localPosition).normalized * 100 * Time.unscaledDeltaTime;
+            rectText.localPosition = rectText.localPosition * 0.85f;
             rectText.localScale += new Vector3(1f, 1f, 1f) * Time.unscaledDeltaTime;
             yield return null;
         }
