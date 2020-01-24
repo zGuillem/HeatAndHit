@@ -21,6 +21,8 @@ public class PixelateEffect : MonoBehaviour
 
         verticalPixels = PlayerPrefs.GetFloat("PixelEffect", verticalPixels);
 
+        Debug.Log(verticalPixels);
+
         if (verticalPixels == -1)
             this.enabled = false;
 

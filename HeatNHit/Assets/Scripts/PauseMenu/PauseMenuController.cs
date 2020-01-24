@@ -8,6 +8,7 @@ public class PauseMenuController : MonoBehaviour
     public Camera cam;
     public GameObject player;
     public Slider pixelEffectSlider;
+    public Slider fovSlider;
 
     private bool inPauseMenu = false;
     private float preTimeScale = 1;
@@ -16,6 +17,10 @@ public class PauseMenuController : MonoBehaviour
     void Start()
     {
         accesKilled = player.GetComponent<PlayerHealth>();
+
+        pixelEffectSlider.value = PlayerPrefs.GetFloat("PixelEffect", 150f);
+        fovSlider.value = PlayerPrefs.GetFloat("fov", 60f);
+
         hide();
     }
 
@@ -80,20 +85,24 @@ public class PauseMenuController : MonoBehaviour
         {
             newValue = -1;
             comprovant.enabled = false;
-            PlayerPrefs.SetFloat("PixelEffect", newValue);
         }
         else
         {
             comprovant.enabled = true;
             comprovant.verticalPixels = newValue;
-            PlayerPrefs.SetFloat("PixelEffect", newValue);
         }
 
+        PlayerPrefs.SetFloat("PixelEffect", newValue);
+        Debug.Log(PlayerPrefs.GetFloat("PixelEffect"));
         PlayerPrefs.Save();
+    }
 
-        /*saveSystem.SaveData(new gameData(newValue));*/
+    public void onChangeSliderFOV()
+    {
+        PlayerPrefs.SetFloat("fov", fovSlider.value);
+        cam.fieldOfView = fovSlider.value;
 
-        
+        PlayerPrefs.Save();
     }
 
     public void onResumeButton()
