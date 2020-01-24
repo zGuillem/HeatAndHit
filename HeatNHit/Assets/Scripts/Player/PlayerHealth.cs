@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
 
     private float currentHealth = 100;
 
-    private bool killed = false;
+    public bool killed = false;
 
     
     void Start()

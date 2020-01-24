@@ -283,7 +283,7 @@ MonoBehaviour:
   Anim: {fileID: 8532311296732423829}
   LifePoints: 0
   EAQ: {fileID: 0}
-  MaxLifePoints: 10
+  MaxLifePoints: 6
   score: 30
   dead: 0
   damage: 10
