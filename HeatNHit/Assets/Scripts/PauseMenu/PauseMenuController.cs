@@ -18,7 +18,12 @@ public class PauseMenuController : MonoBehaviour
     {
         accesKilled = player.GetComponent<PlayerHealth>();
 
-        pixelEffectSlider.value = PlayerPrefs.GetFloat("PixelEffect", 150f);
+        float aux = PlayerPrefs.GetFloat("PixelEffect", 150f);
+        if (aux == -1)
+            pixelEffectSlider.value = pixelEffectSlider.maxValue;
+        else 
+            pixelEffectSlider.value = aux;
+
         fovSlider.value = PlayerPrefs.GetFloat("fov", 60f);
 
         hide();
@@ -93,7 +98,6 @@ public class PauseMenuController : MonoBehaviour
         }
 
         PlayerPrefs.SetFloat("PixelEffect", newValue);
-        Debug.Log(PlayerPrefs.GetFloat("PixelEffect"));
         PlayerPrefs.Save();
     }
 
