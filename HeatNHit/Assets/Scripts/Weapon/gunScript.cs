@@ -242,7 +242,8 @@ public class gunScript : MonoBehaviour
             yield return null;
         }
 
-        Debug.Log("hello");
+        transform.localPosition = new Vector3();
+
     }
 
 
