@@ -28,9 +28,11 @@ public class SpawnEnemies : MonoBehaviour
     public Transform Enemy1;
     public Transform Enemy2;
     public Transform Enemy3;
-    public int nombreEnemics = 2;
-    public Transform[] Enemics = new Transform[2];
-
+    public Transform[] Enemics;
+    [Header("Spawnable Enemies Ratio")]
+    public int Enemy1Ratio;
+    public int Enemy2Ratio;
+    public int Enemy3Ratio;
 
 
 
@@ -46,10 +48,10 @@ public class SpawnEnemies : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Enemics = new Transform[2];
+        Enemics = new Transform[3];
         Enemics[0] = Enemy1;
         Enemics[1] = Enemy2;
-        //Enemics[2] = Enemy3;
+        Enemics[2] = Enemy3;
         timerIniciRonda = duracioIniciRonda;
         timerRonda = 0;
     }
@@ -85,20 +87,45 @@ public class SpawnEnemies : MonoBehaviour
             xinCurve = 1;
         }
 
-        enemicsVius += (int)SpawnCurve.Evaluate(xinCurve) +ComptadorRondes;
-        for (float i = 0; i <= enemicsVius;  i++)
+        enemicsVius += (int)SpawnCurve.Evaluate(xinCurve) + ComptadorRondes;
+        for (float i = 0; i < enemicsVius;  i++)
         {
-            int enemic = Mathf.FloorToInt(Random.Range(0, 4));
-
-            //FER QUE SURTIN MÉS TERRESTRES I MENYS VOLADORS
-            enemic = Mathf.Clamp(enemic, 0, 1);
-
-
-            Vector3 position = new Vector3(Random.Range(transform.position.x-spawnRange, transform.position.x + spawnRange),
-                                            Enemics[enemic].position.y,
+            int enemic = Mathf.FloorToInt(Random.Range(0, 100));
+            int valorPercentual = 0;
+            if (enemic >= valorPercentual && enemic <= valorPercentual+Enemy1Ratio)
+            {
+                Vector3 position = new Vector3(Random.Range(transform.position.x - spawnRange, transform.position.x + spawnRange),
+                                            Enemics[0].position.y,
                                             Random.Range(transform.position.z - spawnRange, transform.position.z + spawnRange));
+
+                Instantiate(Enemics[0], position, transform.rotation, transform.parent.parent.parent);
+            }
+            else
+            {
+                valorPercentual += Enemy1Ratio;
+                if (enemic >= valorPercentual  && enemic <= valorPercentual + Enemy2Ratio)
+                {
+                    Vector3 position = new Vector3(Random.Range(transform.position.x - spawnRange, transform.position.x + spawnRange),
+                                            Enemics[1].position.y,
+                                            Random.Range(transform.position.z - spawnRange, transform.position.z + spawnRange));
+
+                    Instantiate(Enemics[1], position, transform.rotation, transform.parent.parent.parent);
+                }
+                else
+                {
+                    valorPercentual += Enemy2Ratio;
+                    if (enemic >= valorPercentual && enemic <= valorPercentual + Enemy3Ratio)
+                    {
+                        Vector3 position = new Vector3(Random.Range(transform.position.x - spawnRange, transform.position.x + spawnRange),
+                                            Enemics[2].position.y,
+                                            Random.Range(transform.position.z - spawnRange, transform.position.z + spawnRange));
+
+                        Instantiate(Enemics[2], position, transform.rotation, transform.parent.parent.parent);
+                    }
+                }
+            }
+
             
-            Instantiate(Enemics[enemic], position, transform.rotation, transform.parent.parent.parent);
         }
     }
 

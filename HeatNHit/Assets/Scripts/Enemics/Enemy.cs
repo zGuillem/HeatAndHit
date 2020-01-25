@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     public float MaxLifePoints;                                                                 //Punts de vida màxims de l'enemic
     public int score;
     public bool dead;
+    public Vector3 move;
 
     [Header("Attack properties")]
     public float damage;
@@ -49,15 +50,14 @@ public class Enemy : MonoBehaviour
     virtual protected void Start()
     {
         Constructor();
+        Anim = transform.GetComponent<Animator>();
     }
 
     virtual protected void Constructor()
     {
         target = PlayerManager.instance.transform;                                              //definim l'objectiu
         EAQ = EnemyAttackQueue.instance;
-        Anim = transform.GetComponent<Animator>();
         LifePoints = MaxLifePoints;
-        target = PlayerManager.instance.transform;
         AttackTimer = -1;
         spawner = SpawnEnemies.instance;
     }
@@ -126,7 +126,7 @@ public class Enemy : MonoBehaviour
     //Desplaça l'enemic en la direcció del seu objectiu
     virtual protected void MoveTowardsTarget()
     {
-        Vector3 move = GetMoveVector();
+        move = GetMoveVector();
         if (!Attacking || dead)
         {
             FaceTarget(move);
@@ -146,9 +146,7 @@ public class Enemy : MonoBehaviour
 
     virtual protected void AttackMode()
     {
-
         AskPermisionForAttack();
-        //Attack();
     }
 
     //Aconsegueix el vector direcció cap a l'objectiu
@@ -176,7 +174,6 @@ public class Enemy : MonoBehaviour
     virtual protected void Attack()
     {
         Attacking = true;
-        /*gameObject.GetComponent<Rigidbody>().isKinematic = true;*/
         Anim.SetTrigger("InAttackRange");
     }
 
@@ -186,7 +183,6 @@ public class Enemy : MonoBehaviour
     {
         Attacking = false;
         Anim.ResetTrigger("InAttackRange");
-        //transform.Translate(new Vector3(20, 20, 20), Space.World); 
     }
 
     //Controla la mort de l'enemic
@@ -199,7 +195,7 @@ public class Enemy : MonoBehaviour
         Anim.SetTrigger("Death");
     }
 
-    virtual protected void Death()
+    virtual public void Death()
     {
         Destroy(gameObject);
         target.GetComponent<PlayerScore>().ScorePlus(score);
@@ -210,7 +206,7 @@ public class Enemy : MonoBehaviour
     //Controla el rebre mal de l'enemic
     virtual public void TakeDamage(float damage, Vector3 ImpactPosition, Vector3 normal)
     {
-        Instantiate(bulletImpactParticles, ImpactPosition, Quaternion.LookRotation(normal));
+        Instantiate(bulletImpactParticles, ImpactPosition   , Quaternion.LookRotation(normal));
         if (LifePoints > 0)
         {
             LifePoints -= damage;
@@ -224,7 +220,6 @@ public class Enemy : MonoBehaviour
     //Permet al 
     virtual public void GrantPermisionForAttack()
     {
-        Attacking = true;
         Attack();
     }
 

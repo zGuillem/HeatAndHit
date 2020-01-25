@@ -21,6 +21,7 @@ public class FlyingEnemy : Enemy
     override protected void Constructor()
     {
         base.Constructor();
+        Anim = transform.GetComponent<Animator>();
     }
 
 

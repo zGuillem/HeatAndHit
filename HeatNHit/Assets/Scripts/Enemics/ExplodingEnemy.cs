@@ -11,6 +11,7 @@ public class ExplodingEnemy : Enemy
     protected override void Constructor()
     {
         base.Constructor();
+        Anim = transform.GetComponent<Animator>();
     }
     public override void AddKnockBack(float Power)
     {

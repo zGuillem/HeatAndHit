@@ -1,14 +1,17 @@
 fileFormatVersion: 2
-guid: 816c3ff2a7f02f946b00467e269cef0f
+guid: afa794200bbbcc04288fcd074f2a0504
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Caminar
+    second: Humanoide TPose
   - first:
       74: -998496362607748373
-    second: Atac
+    second: HumanoideCaminar
+  - first:
+      74: 2278205304415688552
+    second: Humanoide Atac
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -38,18 +41,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Caminar
+      name: Humanoide TPose
       takeName: Take 001
       internalID: 0
-      firstFrame: 9
-      lastFrame: 72
+      firstFrame: 0
+      lastFrame: 1
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -67,7 +70,36 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Atac
+      name: HumanoideCaminar
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 9
+      lastFrame: 72
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Humanoide Atac
       takeName: Take 001
       internalID: 0
       firstFrame: 75
