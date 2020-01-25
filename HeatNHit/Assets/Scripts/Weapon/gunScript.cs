@@ -175,8 +175,6 @@ public class gunScript : MonoBehaviour
             ShootABullet(transform.position, transform.forward, damage);
             yield return null;
         }
-
-        
     }
 
     void ShootABullet(Vector3 fromPoint, Vector3 direction, float damage)
@@ -185,7 +183,6 @@ public class gunScript : MonoBehaviour
 
         if (Physics.Raycast(fromPoint, direction, out hit, range))
         {
-            //Debug.DrawLine(fromPoint, hit.point, Color.black);
             target _target = hit.transform.GetComponent<target>();
             if (_target != null)
                 _target.takeDamage(damage, impactForce, hit.point, hit.normal);
@@ -234,9 +231,7 @@ public class gunScript : MonoBehaviour
 
     void UpdateMaterial()
     {
-
         rend.material.Lerp(cold, hot, heatCurve.Evaluate(heat));
-        //heatLight.intensity = heatCurve.Evaluate(heat);
     }
 
     void HeatManagement(float variacio)
