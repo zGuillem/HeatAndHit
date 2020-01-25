@@ -13206,7 +13206,7 @@ MonoBehaviour:
       colorBlindnessStrength: 1
   m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
   m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
+  m_ShowCustomSorter: 1
   breakBeforeColorGrading: 0
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
@@ -25297,29 +25297,38 @@ MonoBehaviour:
     type: 3}
   brokenMesh: {fileID: -1388485733357891733, guid: 7690828ed71dca04995c1ca26d9240b5,
     type: 3}
-  recoilTime: 1
+  recoilTime: 0.5
   recoilCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: -0.52442294
+      outSlope: -0.52442294
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.99068576
     - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 1
+      time: 0.19382107
+      value: -0.099292934
+      inSlope: -0.5034143
+      outSlope: 0
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.12153758
+    - serializedVersion: 3
+      time: 1.0018888
+      value: -0.0026028403
+      inSlope: 0.11965594
+      outSlope: 0.11965594
       tangentMode: 34
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
       outWeight: 0
-    m_PreInfinity: 2
+    m_PreInfinity: 0
     m_PostInfinity: 2
     m_RotationOrder: 4
   heatStep: 0.02
