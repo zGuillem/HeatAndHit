@@ -9,6 +9,9 @@ public class PauseMenuController : MonoBehaviour
     public GameObject player;
     public Slider pixelEffectSlider;
     public Slider fovSlider;
+    
+    public Slider musicSlider;
+    public GameObject OST;
 
     private bool inPauseMenu = false;
     private float preTimeScale = 1;
@@ -25,6 +28,8 @@ public class PauseMenuController : MonoBehaviour
             pixelEffectSlider.value = aux;
 
         fovSlider.value = PlayerPrefs.GetFloat("fov", 60f);
+
+        musicSlider.value = PlayerPrefs.GetFloat("musicVolume", 0.5f);
 
         hide();
     }
@@ -105,6 +110,14 @@ public class PauseMenuController : MonoBehaviour
     {
         PlayerPrefs.SetFloat("fov", fovSlider.value);
         cam.fieldOfView = fovSlider.value;
+
+        PlayerPrefs.Save();
+    }
+
+    public void onChangeSliderMusic()
+    {
+        PlayerPrefs.SetFloat("musicVolume", musicSlider.value);
+        OST.GetComponent<AudioSource>().volume = musicSlider.value;
 
         PlayerPrefs.Save();
     }
