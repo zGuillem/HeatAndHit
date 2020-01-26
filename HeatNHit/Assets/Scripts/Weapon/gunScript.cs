@@ -48,6 +48,9 @@ public class gunScript : MonoBehaviour
     public Animator animationPlayer;
     public Mesh functionalMesh;
     public Mesh brokenMesh;
+    public float recoilTime;
+    public AnimationCurve recoilCurve;
+    
 
 
     //Heat treatment
@@ -69,6 +72,9 @@ public class gunScript : MonoBehaviour
 
     private delegate void ShootingMethod(float damage);  //Variable que guardara quina manera d'atacar té l'arma.
     ShootingMethod shootingMethod;
+
+    //Feedback
+    private IEnumerator recoilAcces;
 
     //Weapon characteristics
     private float nextTimeToFire = 0f;                                      //Next time that the weapon can fire, in seconds
@@ -175,8 +181,6 @@ public class gunScript : MonoBehaviour
             ShootABullet(transform.position, transform.forward, damage);
             yield return null;
         }
-
-        
     }
 
     void ShootABullet(Vector3 fromPoint, Vector3 direction, float damage)
@@ -185,7 +189,6 @@ public class gunScript : MonoBehaviour
 
         if (Physics.Raycast(fromPoint, direction, out hit, range))
         {
-            //Debug.DrawLine(fromPoint, hit.point, Color.black);
             target _target = hit.transform.GetComponent<target>();
             if (_target != null)
                 _target.takeDamage(damage, impactForce, hit.point, hit.normal);
@@ -206,15 +209,43 @@ public class gunScript : MonoBehaviour
 
     void FeedbackPostShooting()
     {
+        //ANIMATIONS
         if (animationPlayer != null)
             animationPlayer.SetTrigger("StartAttack");
 
+        //RECOIL
+        Recoil();
 
+        //CAMERA SHAKE
         CameraShaker.Instance.Shake(screenShakeTime, screenShakeForce);
         fpsCam.GetComponent<CamLook>().Recoil(recoil);
 
         audioPlayer.playShoot();
     }
+
+    void Recoil()
+    {
+        if (recoilAcces != null)
+            StopCoroutine(recoilAcces);
+
+        transform.localPosition = new Vector3();
+
+        recoilAcces = RecoilCoroutine(recoilTime + Time.time, recoilTime);
+        StartCoroutine(recoilAcces);
+    }
+
+    private IEnumerator RecoilCoroutine(float endTime, float duration)
+    {
+        while(endTime > Time.time)
+        {
+            transform.localPosition = new Vector3(0f, 0f, recoilCurve.Evaluate(1-((endTime - Time.time) / duration)));
+            yield return null;
+        }
+
+        transform.localPosition = new Vector3();
+
+    }
+
 
     //Heat treatment
     void HeatPreShooting()
@@ -234,9 +265,7 @@ public class gunScript : MonoBehaviour
 
     void UpdateMaterial()
     {
-
         rend.material.Lerp(cold, hot, heatCurve.Evaluate(heat));
-        //heatLight.intensity = heatCurve.Evaluate(heat);
     }
 
     void HeatManagement(float variacio)

@@ -14,6 +14,16 @@ public class PixelateEffect : MonoBehaviour
     
     private void Start()
     {   //Called on the start
+
+        /*gameData data = saveSystem.LoadData();
+        if (data != null && data.PixelEffect != -1)
+            verticalPixels = data.PixelEffect;*/
+/*
+        verticalPixels = PlayerPrefs.GetFloat("PixelEffect", verticalPixels);
+
+        if (verticalPixels == -1)
+            this.enabled = false;
+        */
         shaderUpdate();
     }
 

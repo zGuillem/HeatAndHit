@@ -8,6 +8,10 @@ public class PauseMenuController : MonoBehaviour
     public Camera cam;
     public GameObject player;
     public Slider pixelEffectSlider;
+    public Slider fovSlider;
+    
+    public Slider musicSlider;
+    public GameObject OST;
 
     private bool inPauseMenu = false;
     private float preTimeScale = 1;
@@ -16,6 +20,17 @@ public class PauseMenuController : MonoBehaviour
     void Start()
     {
         accesKilled = player.GetComponent<PlayerHealth>();
+
+        float aux = PlayerPrefs.GetFloat("PixelEffect", 150f);
+        if (aux == -1)
+            pixelEffectSlider.value = pixelEffectSlider.maxValue;
+        else 
+            pixelEffectSlider.value = aux;
+
+        fovSlider.value = PlayerPrefs.GetFloat("fov", 60f);
+
+        musicSlider.value = PlayerPrefs.GetFloat("musicVolume", 0.5f);
+
         hide();
     }
 
@@ -39,7 +54,8 @@ public class PauseMenuController : MonoBehaviour
         Time.timeScale = 0;
         AudioListener aux = cam.GetComponent<AudioListener>();
         Debug.Assert(aux != null);
-        aux.enabled = false;
+
+        AudioListener.pause = true;
 
 
         foreach (Transform child in this.gameObject.transform)
@@ -55,9 +71,7 @@ public class PauseMenuController : MonoBehaviour
     private void hide()
     {
         Time.timeScale = preTimeScale;
-        AudioListener aux = cam.GetComponent<AudioListener>();
-        Debug.Assert(aux != null);
-        aux.enabled = true;
+        AudioListener.pause = false;
 
         foreach (Transform child in this.gameObject.transform)
         {
@@ -78,12 +92,34 @@ public class PauseMenuController : MonoBehaviour
         float newValue = pixelEffectSlider.value;
 
         if (newValue == pixelEffectSlider.maxValue)
+        {
+            newValue = -1;
             comprovant.enabled = false;
+        }
         else
         {
             comprovant.enabled = true;
             comprovant.verticalPixels = newValue;
         }
+
+        PlayerPrefs.SetFloat("PixelEffect", newValue);
+        PlayerPrefs.Save();
+    }
+
+    public void onChangeSliderFOV()
+    {
+        PlayerPrefs.SetFloat("fov", fovSlider.value);
+        cam.fieldOfView = fovSlider.value;
+
+        PlayerPrefs.Save();
+    }
+
+    public void onChangeSliderMusic()
+    {
+        PlayerPrefs.SetFloat("musicVolume", musicSlider.value);
+        OST.GetComponent<AudioSource>().volume = musicSlider.value;
+
+        PlayerPrefs.Save();
     }
 
     public void onResumeButton()

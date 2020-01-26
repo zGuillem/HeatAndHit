@@ -12,6 +12,8 @@ public class CamLook : MonoBehaviour
     public float sensibilitatRatoli;     //Guarda el valor de la sensibilitat que s'assigna al ratolí.
     public Transform cosJugador;
 
+    public Camera cam;
+
     private float limitEix_X;
 
     //MÈTODES PRIVATS ------------------------------------------------------------------------------------------------------
@@ -20,6 +22,8 @@ public class CamLook : MonoBehaviour
     {
         FixarCursor();
         limitEix_X = 0.0f;
+
+        cam.fieldOfView = PlayerPrefs.GetFloat("fov", 60);
     }
 
     public void FixarCursor() //Es cridarà sempre que es vulgui fixar el cursor al centre de la pantalla.

@@ -9,12 +9,15 @@ public class PlayerScore : MonoBehaviour
     public GameObject scoreText;
 
     private int score;
+    private int highScore;
     private Text scoreTextText;
 
 
     void Start()
     {
         score = 0;
+        highScore = PlayerPrefs.GetInt("highscore", 0);
+
         scoreTextText = scoreText.GetComponent<Text>();
         Debug.Assert(scoreTextText != null);
     }
@@ -28,6 +31,13 @@ public class PlayerScore : MonoBehaviour
     public void animationToCenter()
     {
         StartCoroutine(movingToCenter());
+
+        if (score > highScore)
+        {
+            highScore = score;
+            PlayerPrefs.SetInt("highscore", highScore);
+            PlayerPrefs.Save();
+        }
     }
 
     public IEnumerator movingToCenter()
@@ -37,7 +47,7 @@ public class PlayerScore : MonoBehaviour
         
         while((rectText.localPosition).magnitude > 4)
         {
-            rectText.localPosition = rectText.localPosition * 0.85f;// += (-rectText.localPosition).normalized * 100 * Time.unscaledDeltaTime;
+            rectText.localPosition = rectText.localPosition * 0.85f;
             rectText.localScale += new Vector3(1f, 1f, 1f) * Time.unscaledDeltaTime;
             yield return null;
         }
