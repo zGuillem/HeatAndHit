@@ -117,7 +117,7 @@ public class PauseMenuController : MonoBehaviour
     public void onChangeSliderMusic()
     {
         PlayerPrefs.SetFloat("musicVolume", musicSlider.value);
-        OST.GetComponent<AudioSource>().volume = musicSlider.value;
+        OST.GetComponent<AudioPlayer>().changeVolume(musicSlider.value);
 
         PlayerPrefs.Save();
     }
